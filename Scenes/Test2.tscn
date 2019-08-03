@@ -71,3 +71,4 @@ occluder = SubResource( 3 )
 
 [node name="Guard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 224.498, 280.008 )
+
