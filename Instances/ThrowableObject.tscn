@@ -61,6 +61,10 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="TimerReturn" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
 [node name="Light2D" type="Light2D" parent="."]
 texture = ExtResource( 2 )
 texture_scale = 3.0
@@ -75,3 +79,4 @@ shadow_enabled = true
 [connection signal="body_exited" from="GrabArea" to="." method="_on_GrabArea_body_exited"]
 [connection signal="timeout" from="TimerDrop" to="." method="_on_TimerDrop_timeout"]
 [connection signal="timeout" from="TimerThrown" to="." method="_on_TimerThrown_timeout"]
+[connection signal="timeout" from="TimerReturn" to="." method="_on_TimerReturn_timeout"]
