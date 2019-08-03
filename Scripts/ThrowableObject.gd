@@ -7,6 +7,7 @@ var grabbable: bool = true
 var held: bool = false
 var thrown: bool = false
 var returnback: bool = false
+var cooldown: bool = false
 
 var velocity: Vector2 = Vector2.ZERO
 
@@ -33,8 +34,11 @@ func _physics_process(delta: float) -> void:
 		held = true
 	
 	# Recall to player
-	if Input.is_action_just_pressed("action_return") and not held:
+	if Input.is_action_just_pressed("action_return") and not held and not cooldown:
 		returnback = true
+		cooldown = true
+		($AnimationPlayer2 as AnimationPlayer).play("Bar Fill")
+		($TimerCooldown as Timer).start()
 		($TimerReturn as Timer).start()
 		
 	coll.set_disabled(returnback)
@@ -63,3 +67,8 @@ func _on_TimerThrown_timeout() -> void:
 
 func _on_TimerReturn_timeout() -> void:
 	returnback = false
+
+
+func _on_TimerCooldown_timeout() -> void:
+	print("TEST")
+	cooldown = false
