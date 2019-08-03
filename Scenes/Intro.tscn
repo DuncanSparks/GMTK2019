@@ -47,7 +47,7 @@ __meta__ = {
 position = Vector2( 608, 312 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 428, 324 )
+position = Vector2( 512, 328 )
 
 [node name="CutsceneIntro" parent="." instance=ExtResource( 4 )]
 dialogue_text = PoolStringArray( "Ah. Another newly-lost spirit.", "You are in the Underworld, my boy.", "...What\?", "You have left the world of the living.", "What\? No! I can\'t be dead! I need to get back!", "Don\'t we all.", "It won\'t happen, boy. Fools try to escape all the time.", "They\'re always stopped by the guards.", "One lucky idiot almost made it out, but even he didn\'t succeed.", "You certainly won\'t be any different." )
@@ -72,3 +72,10 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Fade in" = SubResource( 1 )
+
+[node name="TimerStartCutscene" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]

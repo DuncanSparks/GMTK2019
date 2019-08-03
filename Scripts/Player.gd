@@ -13,7 +13,7 @@ var holding: bool = false
 var held_object: KinematicBody2D = null
 
 enum State { MOVE, NO_INPUT }
-var state = State.MOVE
+var state = State.NO_INPUT
 
 # ==========================================================
 
@@ -45,9 +45,6 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("move_jump") and is_on_floor():
 				_jump()
 			
-			# Apply velocity to player
-			velocity = move_and_slide(velocity, Vector2(0, -1))
-			
 			if Input.is_action_just_pressed("action_teleport"):
 				set_position(held_object.get_position())
 			
@@ -70,6 +67,9 @@ func _physics_process(delta: float) -> void:
 					held_object.held = false
 					held_object.get_node("TimerDrop").start()
 					#held_object = null
+					
+	# Apply velocity to player
+	velocity = move_and_slide(velocity, Vector2(0, -1))
 			
 			
 func _draw() -> void:

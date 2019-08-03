@@ -71,3 +71,4 @@ occluder = SubResource( 3 )
 
 [node name="Lillith" parent="." instance=ExtResource( 3 )]
 position = Vector2( 403.121, 428.249 )
+

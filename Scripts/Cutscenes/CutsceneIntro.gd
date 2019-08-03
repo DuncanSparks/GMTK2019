@@ -15,9 +15,6 @@ export(PoolIntArray) var positions_to_use_3 = []
 export(NodePath) var anim_player
 
 const Torch_Inst := preload("res://Instances/ThrowableObject.tscn")
-
-func _ready():
-	pass
 	
 	
 func play_cutscene() -> void:
