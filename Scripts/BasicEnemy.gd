@@ -16,3 +16,22 @@ func _physics_process(delta):
 	velocity.x = WALK_SPEED;
 	
 	velocity = move_and_slide(velocity, Vector2(0, 1))
+	
+
+
+func _on_Area2D_area_entered(area):
+	# print(area.name);
+	if area.name == "HitArea":
+		var temp_speed: int = WALK_SPEED;
+		WALK_SPEED = 0;
+		yield(get_tree().create_timer(3.0), "timeout")
+		WALK_SPEED = temp_speed;
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("Torch"):
+		print("fuck")
+		var temp_speed: int = WALK_SPEED
+		WALK_SPEED = 0
+		yield(get_tree().create_timer(3.0), "timeout")
+		WALK_SPEED = temp_speed
