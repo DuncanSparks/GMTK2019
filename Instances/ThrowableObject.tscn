@@ -6,7 +6,6 @@
 [ext_resource path="res://Sprites/fire_particle.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 12 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.7296, 15.3331 )
@@ -14,7 +13,7 @@ extents = Vector2( 15.7296, 15.3331 )
 [sub_resource type="CircleShape2D" id=3]
 radius = 30.0
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -30,26 +29,26 @@ tracks/0/keys = {
 "values": [ 8.0, 7.0, 8.0 ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=5]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="Gradient" id=9]
+[sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.63388, 1 )
 colors = PoolColorArray( 1, 0.792157, 0.592157, 1, 1, 0.792157, 0.592157, 1, 1, 0.792157, 0.592157, 0 )
 
-[sub_resource type="GradientTexture" id=10]
-gradient = SubResource( 9 )
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=8]
 flag_disable_z = true
 gravity = Vector3( 60, 0, 0 )
 initial_velocity = 20.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 10 )
+color_ramp = SubResource( 7 )
 anim_speed = 3.0
 anim_offset = 1.0
 anim_offset_random = 1.0
@@ -90,13 +89,13 @@ shadow_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Light Flicker"
-"anims/Light Flicker" = SubResource( 7 )
+"anims/Light Flicker" = SubResource( 4 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
-material = SubResource( 8 )
+material = SubResource( 5 )
 position = Vector2( 0, -10 )
 rotation = -1.5708
-process_material = SubResource( 11 )
+process_material = SubResource( 8 )
 texture = ExtResource( 4 )
 
 [node name="TimerDrop" type="Timer" parent="."]
