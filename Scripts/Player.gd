@@ -56,7 +56,9 @@ func _physics_process(delta: float) -> void:
 					held_object.thrown = true
 					held_object.grabbable = false
 					held_object.held = false
-					held_object.velocity = (get_global_mouse_position() - held_object.get_global_position()).normalized() * held_object.get_global_position().distance_to(get_global_mouse_position()) * 3
+					var vel := (get_global_mouse_position() - held_object.get_global_position()).normalized() * held_object.get_global_position().distance_to(get_global_mouse_position()) * 3
+					held_object.velocity = vel
+					held_object.spin_speed = sqrt(vel.x * vel.x + vel.y * vel.y)
 					held_object.get_node("TimerDrop").start()
 					held_object.get_node("TimerThrown").start()
 					#held_object = null

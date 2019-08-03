@@ -6,7 +6,6 @@
 [ext_resource path="res://Sprites/fire_particle.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 6, 12 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.7296, 15.3331 )
