@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name ThrowableObject
+
 const GRAVITY: float = 600.0
 
 var player_in_area: bool = false
@@ -16,6 +18,9 @@ onready var spr := $Sprite
 
 func _ready():
 	Controller.get_player().held_object = self
+	
+func get_throwable() -> ThrowableObject:
+	return get_tree().get_root().get_node("Scene").get_node("ThrowableObject") as ThrowableObject
 	
 func _physics_process(delta: float) -> void:
 	# Apply gravity

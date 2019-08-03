@@ -81,10 +81,9 @@ value = 100.0
 texture_under = ExtResource( 3 )
 texture_progress = ExtResource( 4 )
 
-[node name="DetectArea" type="Area2D" parent="."]
+[node name="PlayerDetectArea" type="Area2D" parent="."]
 position = Vector2( 21, 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea"]
 position = Vector2( -20, -6 )
 shape = SubResource( 5 )
-
