@@ -9,6 +9,8 @@ var thrown: bool = false
 var returnback: bool = false
 var cooldown: bool = false
 
+var spin_speed: float = 100.0
+
 var velocity: Vector2 = Vector2.ZERO
 
 onready var coll := $CollisionShape2D
@@ -21,10 +23,12 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor() and not held and not returnback:
 		velocity.y += GRAVITY * delta
-		spr.rotation_degrees += 200 * delta
+		spr.rotation_degrees += spin_speed * delta
 	elif not thrown:
 		velocity = Vector2.ZERO
-		spr.rotation_degrees = 0
+		
+	if returnback:
+		spr.rotation_degrees += spin_speed * delta
 	
 	# Apply velocity
 	if not held:
@@ -32,9 +36,7 @@ func _physics_process(delta: float) -> void:
 	
 	# Pick up
 	if Input.is_action_just_pressed("action_grab") and player_in_area and not held and grabbable and Controller.get_player().state == 0:
-		Controller.get_player().held_object = self
-		Controller.get_player().holding = true
-		held = true
+		_grab()
 	
 	# Recall to player
 	if Input.is_action_just_pressed("action_return") and not held and not cooldown:
@@ -50,9 +52,18 @@ func _physics_process(delta: float) -> void:
 		position = position.linear_interpolate(Controller.get_player().get_position(), 0.1)
 		
 
+func _grab() -> void:
+	Controller.get_player().held_object = self
+	Controller.get_player().holding = true
+	spr.rotation_degrees = 0
+	held = true
+
+
 func _on_GrabArea_body_entered(body: PhysicsBody2D) -> void:
 	if body != null and body.is_in_group("Player"):
 		player_in_area = true
+		if not thrown and not returnback:
+			_grab()
 
 
 func _on_GrabArea_body_exited(body: PhysicsBody2D) -> void:
