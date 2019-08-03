@@ -26,6 +26,8 @@ func _on_FrontVicinityArea_area_entered(area):
 		print('yea'); 
 		get_node("Weapon").show()
 		get_node("Weapon")._on_AnimationPlayer_animation_started("_setup")
+		yield(get_tree().create_timer(3.0), "timeout")
+		get_node("Weapon").hide()
 		# $Weapon/AnimationPlayer.Play("_setup");
 		# $ColorRect3/AnimationPlayer.Play("_setup");
 	
