@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/Enemy.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 40 )
@@ -51,8 +52,10 @@ shape = SubResource( 2 )
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 240, 410 )
 
-[node name="ThrowableObject" parent="." instance=ExtResource( 2 )]
-position = Vector2( 490, 420 )
+[node name="ThrowableObject" parent="." groups=[
+"Torch",
+] instance=ExtResource( 2 )]
+position = Vector2( 390, 378 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_right = 960.0
@@ -65,3 +68,5 @@ __meta__ = {
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 3 )
 
+[node name="Enemy" parent="." instance=ExtResource( 3 )]
+position = Vector2( 572.7, 337.639 )
