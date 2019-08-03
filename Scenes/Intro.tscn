@@ -34,4 +34,3 @@ dialogue_positions = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
 positions_to_use = PoolIntArray( 0, 0, 1, 0, 1, 0, 0, 0, 0 )
 
 [node name="DarknessOverlay" parent="." instance=ExtResource( 5 )]
-
