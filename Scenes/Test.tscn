@@ -69,4 +69,5 @@ shape = SubResource( 4 )
 position = Vector2( -32.2359, 22.0278 )
 enabled = true
 cast_to = Vector2( 0, 11 )
+
 [connection signal="body_exited" from="Area2D2" to="Enemy" method="_on_Area2D2_body_exited"]
