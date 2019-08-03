@@ -13,7 +13,7 @@ var holding: bool = false
 var held_object: KinematicBody2D = null
 
 enum State { MOVE, NO_INPUT }
-var state = State.NO_INPUT
+var state = State.MOVE
 
 # ==========================================================
 
