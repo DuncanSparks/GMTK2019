@@ -11,4 +11,4 @@ func _ready():
 
 func _on_ExitDoor_body_entered(body: PhysicsBody2D) -> void:
 	if body != null and body.is_in_group("Player"):
-		print("GOT TO EXIT")
+		Controller.fade(1, true)

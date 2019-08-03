@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=2]
-[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=4]
-[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scripts/Props/ExitDoor.gd" type="Script" id=6]
+[ext_resource path="res://Scripts/Props/ExitDoor.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Props/Door.png" type="Texture" id=3]
+[ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=4]
+[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 56 )
+extents = Vector2( 28, 40 )
 
 [node name="Scene" type="Node2D"]
 
@@ -23,8 +24,22 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 220, 270 )
 
+[node name="ExitDoor" type="Area2D" parent="."]
+position = Vector2( 792, 248 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="ExitDoor"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
+position = Vector2( 0, 7 )
+shape = SubResource( 1 )
+
 [node name="TileMap3" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 48, 48 )
 collision_layer = 3
 collision_mask = 3
@@ -35,7 +50,7 @@ __meta__ = {
 }
 
 [node name="TileMap2" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 48, 48 )
 collision_layer = 3
 collision_mask = 3
@@ -46,7 +61,7 @@ __meta__ = {
 }
 
 [node name="TileMap" type="TileMap" parent="."]
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 4 )
 cell_size = Vector2( 48, 48 )
 collision_layer = 3
 collision_mask = 3
@@ -56,7 +71,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ThrowableObject" parent="." instance=ExtResource( 3 )]
+[node name="ThrowableObject" parent="." instance=ExtResource( 5 )]
 position = Vector2( 400, 260 )
 
 [node name="Platform" type="StaticBody2D" parent="."]
@@ -68,23 +83,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Platform"]
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
 polygon = PoolVector2Array( -46, -22, -34, -6, -10, -10, 14, 6, 30, -10, 46, -22 )
 
-[node name="DarknessOverlay" parent="." instance=ExtResource( 5 )]
-
-[node name="ExitDoor" type="Area2D" parent="."]
-position = Vector2( 792, 232 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="ExitDoor"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitDoor"]
-shape = SubResource( 1 )
+[node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
 
 [connection signal="body_entered" from="ExitDoor" to="ExitDoor" method="_on_ExitDoor_body_entered"]
