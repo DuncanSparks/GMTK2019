@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=2]
@@ -8,6 +8,9 @@ extents = Vector2( 320, 40 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50, 40 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 170, 460, 170, 540, 810, 540, 810, 460, 630, 460, 630, 380, 530, 380, 530, 460 )
 
 [node name="Scene" type="Node2D"]
 
@@ -49,13 +52,16 @@ shape = SubResource( 2 )
 position = Vector2( 240, 410 )
 
 [node name="ThrowableObject" parent="." instance=ExtResource( 2 )]
-position = Vector2( 390, 378 )
+position = Vector2( 490, 420 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_right = 960.0
 margin_bottom = 540.0
-color = Color( 0, 0, 0, 0.729412 )
+color = Color( 0, 0, 0, 0.960784 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 3 )
 
