@@ -35,6 +35,13 @@ shape = SubResource( 2 )
 wait_time = 0.5
 one_shot = true
 
+[node name="TimerThrown" type="Timer" parent="." groups=[
+"Torch",
+]]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="body_entered" from="GrabArea" to="." method="_on_GrabArea_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_GrabArea_body_exited"]
 [connection signal="timeout" from="TimerDrop" to="." method="_on_TimerDrop_timeout"]
+[connection signal="timeout" from="TimerThrown" to="." method="_on_TimerThrown_timeout"]

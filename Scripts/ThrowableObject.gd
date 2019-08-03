@@ -5,7 +5,7 @@ const GRAVITY: float = 600.0
 var player_in_area: bool = false
 var grabbable: bool = true
 var held: bool = false
-
+var thrown: bool = false
 
 var velocity: Vector2 = Vector2.ZERO
 
@@ -14,10 +14,13 @@ func _ready():
 	
 func _physics_process(delta: float) -> void:
 	# Apply gravity
-	if not is_on_floor():
+	if not is_on_floor() and not held:
 		velocity.y += GRAVITY * delta
-	else:
+	elif not thrown:
+		velocity.x = 0
 		velocity.y = 0
+		
+	print(thrown)
 	
 	# Apply velocity
 	if not held:
@@ -41,3 +44,7 @@ func _on_GrabArea_body_exited(body: PhysicsBody2D) -> void:
 
 func _on_TimerDrop_timeout() -> void:
 	grabbable = true
+
+
+func _on_TimerThrown_timeout() -> void:
+	thrown = false

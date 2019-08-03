@@ -42,6 +42,16 @@ func _physics_process(delta: float) -> void:
 	if holding:
 		held_object.set_position(get_position() + HOLD_POSITION)
 		
+		if Input.is_action_just_pressed("action_throw"):
+			holding = false
+			held_object.thrown = true
+			held_object.grabbable = false
+			held_object.held = false
+			held_object.velocity = (get_global_mouse_position() - held_object.get_global_position()).normalized() * held_object.get_global_position().distance_to(get_global_mouse_position()) * 3
+			held_object.get_node("TimerDrop").start()
+			held_object.get_node("TimerThrown").start()
+			held_object = null
+		
 		if Input.is_action_just_pressed("action_grab"):
 			holding = false
 			held_object.grabbable = false
