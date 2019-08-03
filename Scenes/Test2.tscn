@@ -69,6 +69,6 @@ __meta__ = {
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 3 )
 
-[node name="Lillith" parent="." instance=ExtResource( 3 )]
-position = Vector2( 403.121, 428.249 )
+[node name="Guard" parent="." instance=ExtResource( 3 )]
+position = Vector2( 224.498, 280.008 )
 

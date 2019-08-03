@@ -8,6 +8,7 @@ var in_area: bool = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action_door") and in_area:
+		Controller.get_player().state = 1
 		Controller.fade(1, true)
 
 # ==========================================================
