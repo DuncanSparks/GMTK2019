@@ -56,7 +56,7 @@ position = Vector2( 240, 410 )
 "Torch",
 "Test",
 ] instance=ExtResource( 2 )]
-position = Vector2( 390, 378 )
+position = Vector2( 534.044, 334.787 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 margin_right = 960.0
@@ -71,4 +71,3 @@ occluder = SubResource( 3 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 572.7, 341.639 )
-

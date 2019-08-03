@@ -44,8 +44,10 @@ func _on_PlayerAreaVicinityBack_body_shape_entered(body_id, body, body_shape, ar
 		temp_speed = WALK_SPEED;
 		WALK_SPEED = -300
 
-		
-
-
-func _on_PlayerAreaVicinityFront_body_exited(body):
-	pass # Replace with function body.
+func _on_HitArea_area_entered(area):
+	if area.name == "HitArea":
+		temp_speed = WALK_SPEED
+		WALK_SPEED = 0
+		yield(get_tree().create_timer(3.0), "timeout")
+		WALK_SPEED = temp_speed
+		temp_speed = 0
