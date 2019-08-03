@@ -12,6 +12,7 @@ var cooldown: bool = false
 var velocity: Vector2 = Vector2.ZERO
 
 onready var coll := $CollisionShape2D
+onready var spr := $Sprite
 
 func _ready():
 	Controller.get_player().held_object = self
@@ -20,8 +21,10 @@ func _physics_process(delta: float) -> void:
 	# Apply gravity
 	if not is_on_floor() and not held and not returnback:
 		velocity.y += GRAVITY * delta
+		spr.rotation_degrees += 200 * delta
 	elif not thrown:
 		velocity = Vector2.ZERO
+		spr.rotation_degrees = 0
 	
 	# Apply velocity
 	if not held:
