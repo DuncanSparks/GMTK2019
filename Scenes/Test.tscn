@@ -10,9 +10,9 @@ extents = Vector2( 320, 40 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50, 40 )
 
-[sub_resource type="RectangleShape2D" id=4]
-
 [sub_resource type="RectangleShape2D" id=3]
+
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 30.6296, 30.7395 )
 
 [node name="Scene" type="Node2D"]
@@ -53,7 +53,7 @@ position = Vector2( 255.145, 268.382 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2( 78.7791, -4.34723 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Enemy" type="KinematicBody2D" parent="."]
 position = Vector2( 283.127, 239.555 )
@@ -63,10 +63,11 @@ script = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="RayCast2D" type="RayCast2D" parent="Enemy"]
 position = Vector2( -32.2359, 22.0278 )
 enabled = true
 cast_to = Vector2( 0, 11 )
+
 [connection signal="body_exited" from="Area2D2" to="Enemy" method="_on_Area2D2_body_exited"]

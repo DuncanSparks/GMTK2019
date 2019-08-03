@@ -19,8 +19,6 @@ func _physics_process(delta: float) -> void:
 	elif not thrown:
 		velocity.x = 0
 		velocity.y = 0
-		
-	print(thrown)
 	
 	# Apply velocity
 	if not held:
