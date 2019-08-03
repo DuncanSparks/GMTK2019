@@ -22,3 +22,8 @@ func dialogue(text: PoolStringArray, positions: Array, positions_to_use: PoolInt
 	get_tree().get_root().add_child(dlg)
 	yield(dlg, "dialogue_ended")
 	emit_signal("dialogue_ended")
+
+
+func fade(speed: float, out: bool) -> void:
+	$AnimationPlayer.play("Fadeout" if out else "Fadein")
+	
