@@ -1,0 +1,185 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Beez_R.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 30.6296, 30.7395 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 37.7889, 40.2482 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24.5227, 37.667 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "ChargeLeft"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "ChargeRight"
+length = 1.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "WalkLeft"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "WalkRight"
+length = 2.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 283.127, 239.555 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 4
+frame = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( -32.2359, 22.0278 )
+enabled = true
+cast_to = Vector2( 0, 20 )
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource( 2 )
+
+[node name="PlayerAreaVicinityFront" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaVicinityFront"]
+position = Vector2( 61.0137, -0.17482 )
+shape = SubResource( 3 )
+
+[node name="PlayerAreaVicinityBack" type="Area2D" parent="."]
+position = Vector2( 57.3423, 13.4615 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaVicinityBack"]
+position = Vector2( -117.832, -13.9859 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "WalkLeft"
+playback_speed = -2.5
+anims/ChargeLeft = SubResource( 6 )
+anims/ChargeRight = SubResource( 7 )
+anims/WalkLeft = SubResource( 4 )
+anims/WalkRight = SubResource( 5 )
+
+[connection signal="area_entered" from="HitArea" to="." method="_on_HitArea_area_entered"]
+[connection signal="area_entered" from="HitArea" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_shape_entered" from="HitArea" to="." method="_on_HitArea_body_shape_entered"]
+[connection signal="body_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_entered"]
+[connection signal="body_exited" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_exited"]
+[connection signal="body_shape_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_shape_entered"]
+[connection signal="body_shape_entered" from="PlayerAreaVicinityBack" to="." method="_on_PlayerAreaVicinityBack_body_shape_entered"]
+[connection signal="body_shape_exited" from="PlayerAreaVicinityBack" to="." method="_on_PlayerAreaVicinityBack_body_shape_exited"]
