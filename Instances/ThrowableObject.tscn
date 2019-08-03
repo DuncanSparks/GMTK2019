@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/ThrowableObject.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Torch.png" type="Texture" id=2]
@@ -46,16 +46,12 @@ gradient = SubResource( 6 )
 flag_disable_z = true
 gravity = Vector3( 60, 0, 0 )
 initial_velocity = 20.0
-angular_velocity = 13.3333
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 7 )
 anim_speed = 3.0
 anim_offset = 1.0
 anim_offset_random = 1.0
-
-[sub_resource type="CircleShape2D" id=9]
-radius = 75.7893
 
 [node name="ThrowableObject" type="KinematicBody2D"]
 position = Vector2( 250, 250 )
@@ -120,11 +116,6 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
-[node name="Area2D" type="Area2D" parent="."]
-editor/display_folded = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 9 )
 [connection signal="body_entered" from="GrabArea" to="." method="_on_GrabArea_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_GrabArea_body_exited"]
 [connection signal="timeout" from="TimerDrop" to="." method="_on_TimerDrop_timeout"]
