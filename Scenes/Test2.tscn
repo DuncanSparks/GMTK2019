@@ -70,5 +70,5 @@ __meta__ = {
 occluder = SubResource( 3 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
-position = Vector2( 572.7, 337.639 )
+position = Vector2( 572.7, 341.639 )
 
