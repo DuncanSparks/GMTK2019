@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Lillith.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,6 +8,9 @@
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 62.3017, 36.1672 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 37.1274, 48.8684 )
 
 [node name="Lillith" type="KinematicBody2D"]
 position = Vector2( 231.982, 422.37 )
@@ -32,20 +35,57 @@ position = Vector2( -179.571, -0.440125 )
 position = Vector2( 89.7857, -2.20065 )
 shape = SubResource( 2 )
 
+[node name="TopVicinityArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopVicinityArea"]
+position = Vector2( -1.73187, -85.198 )
+shape = SubResource( 3 )
+
+[node name="BottomVicinityArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomVicinityArea"]
+position = Vector2( 0.992615, 82.0176 )
+shape = SubResource( 3 )
+
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2( -30.9508, 16.9354 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 
-[node name="Weapon" parent="." instance=ExtResource( 3 )]
+[node name="FrontWeapon" parent="." instance=ExtResource( 3 )]
 visible = false
 margin_left = 35.4381
 margin_top = -8.43588
 margin_right = 153.438
 margin_bottom = 11.5641
+
+[node name="BackWeapon" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = -153.233
+margin_top = -10.4793
+margin_right = -35.2329
+margin_bottom = 9.52071
+
+[node name="TopWeapon" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = -11.5699
+margin_top = -35.2003
+margin_right = 106.43
+margin_bottom = -15.2003
+rect_rotation = -90.0455
+
+[node name="BottomWeapon" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_left = -9.94092
+margin_top = 155.394
+margin_right = 108.059
+margin_bottom = 175.394
+rect_rotation = -90.0455
 [connection signal="area_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_area_entered"]
 [connection signal="body_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_entered"]
 [connection signal="body_shape_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_shape_entered"]
 [connection signal="area_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_area_entered"]
 [connection signal="body_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_body_entered"]
 [connection signal="body_shape_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_body_shape_entered"]
+[connection signal="area_entered" from="TopVicinityArea" to="." method="_on_TopVicinityArea_area_entered"]
+[connection signal="area_entered" from="BottomVicinityArea" to="." method="_on_BottomVicinityArea_area_entered"]
