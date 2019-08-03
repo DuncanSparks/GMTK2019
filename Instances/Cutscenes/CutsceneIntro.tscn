@@ -4,4 +4,7 @@
 
 [node name="CutsceneIntro" type="Node"]
 script = ExtResource( 1 )
+dialogue_text_3 = PoolStringArray( "Where am I\?" )
+dialogue_positions_3 = [ Vector2( 400, 320 ) ]
+positions_to_use_3 = PoolIntArray( 0 )
 

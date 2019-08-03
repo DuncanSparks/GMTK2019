@@ -1,10 +1,26 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Characters/HummingMan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Instances/Cutscenes/CutsceneIntro.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fade in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="Scene" type="Node2D"]
 
@@ -19,8 +35,13 @@ __meta__ = {
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 48, 48 )
+collision_layer = 3
+collision_mask = 3
 format = 1
 tile_data = PoolIntArray( 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524307, 1, 0, 589824, 4, 0, 589825, 4, 0, 589826, 4, 0, 589827, 4, 0, 589828, 4, 0, 589829, 4, 0, 589830, 4, 0, 589831, 4, 0, 589832, 4, 0, 589833, 4, 0, 589834, 4, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 4, 0, 589839, 4, 0, 589840, 4, 0, 589841, 4, 0, 589842, 4, 0, 589843, 4, 0, 655360, 4, 0, 655361, 4, 0, 655362, 4, 0, 655363, 4, 0, 655364, 4, 0, 655365, 4, 0, 655366, 4, 0, 655367, 4, 0, 655368, 4, 0, 655369, 4, 0, 655370, 4, 0, 655371, 4, 0, 655372, 4, 0, 655373, 4, 0, 655374, 4, 0, 655375, 4, 0, 655376, 4, 0, 655377, 4, 0, 655378, 4, 0, 655379, 4, 0, 720896, 4, 0, 720897, 4, 0, 720898, 4, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 4, 0, 720904, 4, 0, 720905, 4, 0, 720906, 4, 0, 720907, 4, 0, 720908, 4, 0, 720909, 4, 0, 720910, 4, 0, 720911, 4, 0, 720912, 4, 0, 720913, 4, 0, 720914, 4, 0, 720915, 4, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 position = Vector2( 608, 312 )
@@ -29,9 +50,26 @@ position = Vector2( 608, 312 )
 position = Vector2( 428, 324 )
 
 [node name="CutsceneIntro" parent="." instance=ExtResource( 4 )]
-dialogue_text = PoolStringArray( "Ah. Another newly-lost spirit.", "You are in the afterlife, my boy.", "...What\?", "You have left the world of the living.", "No! I can\'t be dead! I need to get back!", "Don\'t we all.", "It won\'t happen, boy. Fools try to escape all the time.", "They\'re always stopped by the guards.", "One lucky idiot almost made it out, but even he didn\'t succeed." )
+dialogue_text = PoolStringArray( "Ah. Another newly-lost spirit.", "You are in the Underworld, my boy.", "...What\?", "You have left the world of the living.", "What\? No! I can\'t be dead! I need to get back!", "Don\'t we all.", "It won\'t happen, boy. Fools try to escape all the time.", "They\'re always stopped by the guards.", "One lucky idiot almost made it out, but even he didn\'t succeed.", "You certainly won\'t be any different." )
 dialogue_positions = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
-positions_to_use = PoolIntArray( 0, 0, 1, 0, 1, 0, 0, 0, 0 )
+positions_to_use = PoolIntArray( 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 )
+dialogue_text_2 = PoolStringArray( "That light...", "Hm...", "Maybe you do have a chance after all.", "Take that torch in your hand, boy.", "Hold it close, and don’t let anyone take it!", "It’s the only light you’ll find down here.", "What\?", "That light can let you leave this place.", "It\'s been so long since I\'ve felt that burning feeling -- hope.", "Now, go!", "What about you\?", "This old soul already had its chance.", "Go!", "Beware the guards. Listen not to the other spirits.", "And don\'t look back. The torch will guide you!" )
+dialogue_positions_2 = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
+positions_to_use_2 = PoolIntArray( 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
+dialogue_positions_3 = [ Vector2( 380, 240 ) ]
+anim_player = NodePath("../AnimationPlayer")
 
 [node name="DarknessOverlay" parent="." instance=ExtResource( 5 )]
+
+[node name="Fade" type="ColorRect" parent="."]
+margin_right = 960.0
+margin_bottom = 540.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Fade in" = SubResource( 1 )
 

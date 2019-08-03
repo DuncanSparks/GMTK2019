@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		velocity = move_and_slide(velocity, Vector2(0, -1))
 	
 	# Pick up
-	if Input.is_action_just_pressed("action_grab") and player_in_area and not held and grabbable:
+	if Input.is_action_just_pressed("action_grab") and player_in_area and not held and grabbable and Controller.get_player().state == 0:
 		Controller.get_player().held_object = self
 		Controller.get_player().holding = true
 		held = true
