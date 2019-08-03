@@ -48,12 +48,12 @@ func _physics_process(delta: float) -> void:
 		
 
 func _on_GrabArea_body_entered(body: PhysicsBody2D) -> void:
-	if body.is_in_group("Player"):
+	if body != null and body.is_in_group("Player"):
 		player_in_area = true
 
 
 func _on_GrabArea_body_exited(body: PhysicsBody2D) -> void:
-	if body.is_in_group("Player"):
+	if body != null and body.is_in_group("Player"):
 		player_in_area = false
 
 
