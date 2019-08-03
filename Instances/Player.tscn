@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/UI/CDUnder.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/CDBar.png" type="Texture" id=4]
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
@@ -13,10 +13,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 30, 30 )
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=3]
 resource_name = "Bar Fill"
 length = 3.0
 tracks/0/type = "value"
@@ -44,7 +44,7 @@ tracks/1/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="CanvasItemMaterial" id=7]
+[sub_resource type="CanvasItemMaterial" id=4]
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -56,19 +56,19 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 8 )
+frames = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 9 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Bar Fill" = SubResource( 10 )
+"anims/Bar Fill" = SubResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="TextureProgress" type="TextureProgress" parent="CanvasLayer"]
 visible = false
-material = SubResource( 7 )
+material = SubResource( 4 )
 margin_left = 36.0
 margin_top = 507.0
 margin_right = 70.0

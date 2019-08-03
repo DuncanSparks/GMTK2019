@@ -53,8 +53,8 @@ shape = SubResource( 2 )
 position = Vector2( 240, 410 )
 
 [node name="ThrowableObject" parent="." groups=[
-"Test",
 "Torch",
+"Test",
 ] instance=ExtResource( 2 )]
 position = Vector2( 534.044, 334.787 )
 
@@ -71,3 +71,4 @@ occluder = SubResource( 3 )
 
 [node name="Enemy" parent="." instance=ExtResource( 3 )]
 position = Vector2( 572.7, 341.639 )
+

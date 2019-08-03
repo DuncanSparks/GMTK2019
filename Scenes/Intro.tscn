@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Characters/HummingMan.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Cutscenes/CutsceneIntro.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=5]
 
 [node name="Scene" type="Node2D"]
 
@@ -25,4 +27,11 @@ position = Vector2( 608, 312 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 428, 324 )
+
+[node name="CutsceneIntro" parent="." instance=ExtResource( 4 )]
+dialogue_text = PoolStringArray( "Ah. Another newly-lost spirit.", "You are in the afterlife, my boy.", "...What\?", "You have left the world of the living.", "No! I can\'t be dead! I need to get back!", "Don\'t we all.", "It won\'t happen, boy. Fools try to escape all the time.", "They\'re always stopped by the guards.", "One lucky idiot almost made it out, but even he didn\'t succeed." )
+dialogue_positions = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
+positions_to_use = PoolIntArray( 0, 0, 1, 0, 1, 0, 0, 0, 0 )
+
+[node name="DarknessOverlay" parent="." instance=ExtResource( 5 )]
 
