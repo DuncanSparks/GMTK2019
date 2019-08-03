@@ -11,7 +11,7 @@ var cooldown: bool = false
 
 var velocity: Vector2 = Vector2.ZERO
 
-onready var coll: CollisionShape2D = $CollisionShape2D
+onready var coll := $CollisionShape2D
 
 func _ready():
 	Controller.get_player().held_object = self
@@ -37,7 +37,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action_return") and not held and not cooldown:
 		returnback = true
 		cooldown = true
-		($AnimationPlayer2 as AnimationPlayer).play("Bar Fill")
+		Controller.get_player().trigger_progress_bar()
 		($TimerCooldown as Timer).start()
 		($TimerReturn as Timer).start()
 		
@@ -70,5 +70,4 @@ func _on_TimerReturn_timeout() -> void:
 
 
 func _on_TimerCooldown_timeout() -> void:
-	print("TEST")
 	cooldown = false

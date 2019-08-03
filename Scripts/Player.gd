@@ -66,6 +66,11 @@ func _physics_process(delta: float) -> void:
 func _draw() -> void:
 	if holding:
 		draw_line(HOLD_POSITION, get_local_mouse_position(), Color(1, 1, 1, 1), 5.0)
+		
+# ==========================================================
+
+func trigger_progress_bar() -> void:
+	$AnimationPlayer.play("Bar Fill")
 
 # ==========================================================
 
