@@ -5,8 +5,8 @@
 [ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=3]
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Sprites/Platform1.png" type="Texture" id=5]
-[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=7]
 
 [node name="Scene" type="Node2D"]
 
@@ -73,8 +73,8 @@ texture = ExtResource( 5 )
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Platform"]
 polygon = PoolVector2Array( -46, -22, -34, -6, -10, -10, 14, 6, 30, -10, 46, -22 )
 
-[node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 404, 356 )
+[node name="DarknessOverlay" parent="." instance=ExtResource( 6 )]
 
-[node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
+[node name="Enemy" parent="." instance=ExtResource( 7 )]
+position = Vector2( 404, 356 )
 
