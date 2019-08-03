@@ -27,9 +27,9 @@ position = Vector2( -32.2359, 22.0278 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HitArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 shape = SubResource( 2 )
 
 [node name="PlayerAreaVicinityFront" type="Area2D" parent="."]
@@ -44,8 +44,9 @@ position = Vector2( 57.3423, 13.4615 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaVicinityBack"]
 position = Vector2( -117.832, -13.9859 )
 shape = SubResource( 3 )
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="HitArea" to="." method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="HitArea" to="." method="_on_HitArea_area_entered"]
+[connection signal="body_shape_entered" from="HitArea" to="." method="_on_HitArea_body_shape_entered"]
 [connection signal="body_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_entered"]
 [connection signal="body_exited" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_exited"]
 [connection signal="body_shape_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_shape_entered"]
