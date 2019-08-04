@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export (AudioStream) var footstep
+
 const GRAVITY: float = 600.0
 const JUMP_FORCE: float = 300.0
 var WALK_SPEED: int = -100
@@ -26,7 +28,6 @@ func _physics_process(delta):
 			#anim_player.current_animation_position = 2.2
 			anim_player.set_speed_scale(-2.5)
 	velocity.x = WALK_SPEED
-	
 	velocity = move_and_slide(velocity, Vector2(0, 1))
 
 

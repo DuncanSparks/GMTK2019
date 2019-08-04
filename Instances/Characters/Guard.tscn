@@ -214,5 +214,4 @@ anims/HitLeft = SubResource( 4 )
 anims/HitRight = SubResource( 5 )
 anims/Left = SubResource( 6 )
 anims/Right = SubResource( 7 )
-
 [connection signal="body_entered" from="KillArea" to="." method="_on_KillArea_body_entered"]

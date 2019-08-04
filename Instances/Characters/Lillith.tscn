@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scripts/Lillith.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Lilith_HitR.png" type="Texture" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://Sprites/Characters/Lilith_HitUR.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters/Lilith_L.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters/Lilith_R.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/Audio/RandomizedAudio.gd" type="Script" id=9]
+[ext_resource path="res://Audio/FX/Lilith.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/FX/Lilith2.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/FX/Lilith3.wav" type="AudioStream" id=12]
+[ext_resource path="res://Audio/FX/Lilith4.wav" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18.1604, 62.37 )
@@ -437,6 +442,10 @@ anims/IdleLeft = SubResource( 9 )
 anims/IdleRight = SubResource( 10 )
 anims/WalkLeft = SubResource( 11 )
 anims/WalkRight = SubResource( 12 )
+
+[node name="LilithNoises" type="Node2D" parent="."]
+script = ExtResource( 9 )
+clips = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
 [connection signal="area_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_area_entered"]
 [connection signal="body_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_entered"]
 [connection signal="body_shape_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_shape_entered"]
