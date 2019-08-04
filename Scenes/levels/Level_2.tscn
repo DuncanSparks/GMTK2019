@@ -18,8 +18,8 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-modulate = Color( 0.682353, 0.603922, 0.603922, 1 )
+[node name="bg" type="Sprite" parent="."]
+modulate = Color( 0.682353, 0.603922, 0.603922, 0.45098 )
 position = Vector2( 430, 160 )
 texture = ExtResource( 1 )
 region_enabled = true
