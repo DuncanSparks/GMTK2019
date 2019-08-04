@@ -45,27 +45,18 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 resource_name = "Music Fadeout"
-tracks/0/type = "audio"
-tracks/0/path = NodePath("Background Music")
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Background Music:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"clips": [  ],
-"times": PoolRealArray(  )
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Background Music:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 2685.5 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2, 2685.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ -30.0 ]
+"values": [ -30.0, -80.0, -30.0 ]
 }
 
 [node name="Scene" type="Node2D"]
@@ -152,6 +143,7 @@ dialogue_positions_2 = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
 positions_to_use_2 = PoolIntArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 dialogue_positions_3 = [ Vector2( 380, 240 ) ]
 anim_player = NodePath("../AnimationPlayer")
+anim_player_2 = NodePath("../AnimationPlayerMusic")
 target_scene = ExtResource( 10 )
 
 [node name="TimerStartCutscene" type="Timer" parent="."]
@@ -161,4 +153,5 @@ autostart = true
 
 [node name="AnimationPlayerMusic" type="AnimationPlayer" parent="."]
 "anims/Music Fadeout" = SubResource( 3 )
+
 [connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]

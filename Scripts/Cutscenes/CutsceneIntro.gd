@@ -13,6 +13,7 @@ export(Array, Vector2) var dialogue_positions_3 = []
 export(PoolIntArray) var positions_to_use_3 = []
 
 export(NodePath) var anim_player
+export(NodePath) var anim_player_2
 
 export(PackedScene) var target_scene
 
@@ -40,6 +41,7 @@ func play_cutscene() -> void:
 	yield(Controller, "dialogue_ended")
 	
 	get_node(anim_player).play("Fade out")
+	get_node(anim_player_2).play("Music Fadeout")
 	yield(get_tree().create_timer(4.0), "timeout")
 	
 	get_tree().change_scene_to(target_scene)
