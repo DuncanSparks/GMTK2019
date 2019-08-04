@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/UI/Credits.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Exit.png" type="Texture" id=6]
 
-[sub_resource type="Shader" id=2]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 //render_mode unshaded;
 
@@ -20,21 +20,20 @@ void fragment() {
 	COLOR = value > cutoff ? vec4(COLOR.rgb, 0) : col;
 }"
 
-[sub_resource type="OpenSimplexNoise" id=4]
+[sub_resource type="OpenSimplexNoise" id=2]
 period = 100.0
 persistence = 1.0
 lacunarity = 2.55
 
-[sub_resource type="NoiseTexture" id=5]
-noise = SubResource( 4 )
+[sub_resource type="NoiseTexture" id=3]
+noise = SubResource( 2 )
 
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
 shader_param/cutoff = 0.0
-shader_param/transition = SubResource( 5 )
+shader_param/transition = SubResource( 3 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Flicker"
+[sub_resource type="Animation" id=5]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -108,7 +107,7 @@ __meta__ = {
 }
 
 [node name="Logo" type="Sprite" parent="."]
-material = SubResource( 3 )
+material = SubResource( 4 )
 position = Vector2( 126, -10 )
 texture = ExtResource( 2 )
 centered = false
@@ -144,7 +143,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 0.6
-anims/Flicker = SubResource( 1 )
+anims/Flicker = SubResource( 5 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "Fade in"
