@@ -4,11 +4,11 @@
 [ext_resource path="res://Instances/Props/ExitDoor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=4]
-[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=6]
-[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/levels/PitKill.gd" type="Script" id=9]
+[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=7]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/PitKill.gd" type="Script" id=9]
 [ext_resource path="res://Instances/Characters/Lillith.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -48,7 +48,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ThrowableObject" parent="." instance=ExtResource( 5 )]
+[node name="Guard" parent="TileMap3" instance=ExtResource( 5 )]
+position = Vector2( 689.697, 320.041 )
+
+[node name="ThrowableObject" parent="." instance=ExtResource( 6 )]
 position = Vector2( 48.1382, 406.419 )
 
 [node name="platform" type="StaticBody2D" parent="."]
@@ -59,17 +62,17 @@ collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="platform"]
 position = Vector2( 430, 300 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platform"]
 polygon = PoolVector2Array( 390, 280, 480, 280, 440, 310 )
 
-[node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
+[node name="DarknessOverlay" parent="." instance=ExtResource( 8 )]
 
-[node name="Guard" parent="." instance=ExtResource( 8 )]
+[node name="Guard" parent="." instance=ExtResource( 5 )]
 position = Vector2( 97.6682, 89.5609 )
 
-[node name="Guard2" parent="." instance=ExtResource( 8 )]
+[node name="Guard2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 688.906, -64.5907 )
 
 [node name="DeathArea" type="Area2D" parent="."]
@@ -82,5 +85,4 @@ shape = SubResource( 1 )
 [node name="Lillith" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 368.641, 325.322 )
-
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_DeathArea_body_entered"]
