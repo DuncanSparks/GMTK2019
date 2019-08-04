@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Lillith.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -12,6 +12,9 @@ extents = Vector2( 62.3017, 36.1672 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 37.1274, 48.8684 )
 
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 31.7663, 32.7258 )
+
 [node name="Lillith" type="KinematicBody2D"]
 position = Vector2( 231.982, 422.37 )
 script = ExtResource( 1 )
@@ -20,6 +23,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.142395, 0 )
 shape = SubResource( 1 )
 
 [node name="FrontVicinityArea" type="Area2D" parent="."]
@@ -81,6 +85,11 @@ margin_top = 155.394
 margin_right = 108.059
 margin_bottom = 175.394
 rect_rotation = -90.0455
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+shape = SubResource( 4 )
 [connection signal="area_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_area_entered"]
 [connection signal="body_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_entered"]
 [connection signal="body_shape_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_shape_entered"]
@@ -89,3 +98,4 @@ rect_rotation = -90.0455
 [connection signal="body_shape_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_body_shape_entered"]
 [connection signal="area_entered" from="TopVicinityArea" to="." method="_on_TopVicinityArea_area_entered"]
 [connection signal="area_entered" from="BottomVicinityArea" to="." method="_on_BottomVicinityArea_area_entered"]
+[connection signal="body_shape_entered" from="HitArea" to="." method="_on_HitArea_body_shape_entered"]

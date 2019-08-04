@@ -45,6 +45,9 @@ func _on_PlayerAreaVicinityFront_body_shape_entered(body_id, body, body_shape, a
 	if body.name == "Player":
 		temp_speed = WALK_SPEED
 		WALK_SPEED = 300
+		
+		velocity.x = (body.position.x - position.x) 
+		
 		yield(get_tree().create_timer(3.0), "timeout")
 		print("wait man");
 		WALK_SPEED = temp_speed
@@ -53,11 +56,18 @@ func _on_PlayerAreaVicinityBack_body_shape_entered(body_id, body, body_shape, ar
 	if body.name == "Player":
 		temp_speed = WALK_SPEED
 		WALK_SPEED = -300
+		
+		velocity = (body.position - position).normalize()
 
 func _on_HitArea_area_entered(area):
+	print(area.name)
 	if area.name == "HitArea":
 		temp_speed = WALK_SPEED
 		WALK_SPEED = 0
+		
 		yield(get_tree().create_timer(3.0), "timeout")
 		WALK_SPEED = temp_speed
 		temp_speed = 0
+		
+	if area.name == "PlayerHitArea":
+		get_tree().reload_current_scene()
