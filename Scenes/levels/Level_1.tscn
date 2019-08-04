@@ -58,7 +58,8 @@ margin_right = 506.0
 margin_bottom = 263.0
 custom_fonts/font = SubResource( 2 )
 text = "Left click - Throw torch
-Right click - Recall torch"
+Right click - Recall torch
+E - Pick up torch"
 
 [node name="Label3" type="Label" parent="."]
 margin_left = 488.0

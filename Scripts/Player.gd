@@ -25,6 +25,7 @@ var state = State.MOVE
 
 onready var anim_player := $AnimationPlayer2
 onready var spr := $Sprite2
+onready var timer := $TimerSteps
 
 # ==========================================================
 
