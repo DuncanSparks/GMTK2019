@@ -1,19 +1,18 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Instances/Props/ExitDoor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=3]
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Audio/FX/CaveAmbience.wav" type="AudioStream" id=8]
-[ext_resource path="res://Audio/Music/LevelTheme.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Scripts/Audio/RandomizedAudio.gd" type="Script" id=10]
-[ext_resource path="res://Audio/FX/DropletSound.wav" type="AudioStream" id=11]
-[ext_resource path="res://Audio/FX/DropletSound2.wav" type="AudioStream" id=12]
-[ext_resource path="res://Audio/FX/DropletSound3.wav" type="AudioStream" id=13]
-[ext_resource path="res://Audio/FX/DropletSound4.wav" type="AudioStream" id=14]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/FX/CaveAmbience.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Music/LevelTheme.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Scripts/Audio/RandomizedAudio.gd" type="Script" id=8]
+[ext_resource path="res://Audio/FX/DropletSound.wav" type="AudioStream" id=9]
+[ext_resource path="res://Audio/FX/DropletSound2.wav" type="AudioStream" id=10]
+[ext_resource path="res://Audio/FX/DropletSound3.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/FX/DropletSound4.wav" type="AudioStream" id=12]
+[ext_resource path="res://Instances/Characters/Lillith.tscn" type="PackedScene" id=13]
 
 [node name="Scene" type="Node2D"]
 
@@ -66,44 +65,41 @@ __meta__ = {
 [node name="ThrowableObject" parent="." instance=ExtResource( 4 )]
 position = Vector2( 556, 236 )
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 404, 364 )
-
-[node name="Guard" parent="." instance=ExtResource( 6 )]
-position = Vector2( 188, 192 )
-
-[node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
+[node name="DarknessOverlay" parent="." instance=ExtResource( 5 )]
 
 [node name="Ambience" type="Node2D" parent="."]
 
 [node name="MainCaveAmbience" type="AudioStreamPlayer" parent="Ambience"]
-stream = ExtResource( 8 )
+stream = ExtResource( 6 )
 volume_db = -35.0
 autoplay = true
 
 [node name="LevelMusic" type="AudioStreamPlayer" parent="Ambience"]
-stream = ExtResource( 9 )
+stream = ExtResource( 7 )
 volume_db = -35.0
 autoplay = true
 
 [node name="Droplets" type="Node2D" parent="Ambience"]
-script = ExtResource( 10 )
+script = ExtResource( 8 )
 
 [node name="Droplet1" type="AudioStreamPlayer" parent="Ambience/Droplets"]
-stream = ExtResource( 11 )
+stream = ExtResource( 9 )
 volume_db = -35.0
 
 [node name="Droplet2" type="AudioStreamPlayer" parent="Ambience/Droplets"]
-stream = ExtResource( 12 )
+stream = ExtResource( 10 )
 volume_db = -35.0
 
 [node name="Droplet3" type="AudioStreamPlayer" parent="Ambience/Droplets"]
-stream = ExtResource( 13 )
+stream = ExtResource( 11 )
 volume_db = -35.0
 
 [node name="Droplet4" type="AudioStreamPlayer" parent="Ambience/Droplets"]
-stream = ExtResource( 14 )
+stream = ExtResource( 12 )
 volume_db = -35.0
 
 [node name="Timer" type="Timer" parent="Ambience"]
+
+[node name="Lillith" parent="." instance=ExtResource( 13 )]
+position = Vector2( 380.536, 320 )
 
