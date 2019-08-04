@@ -40,8 +40,10 @@ func play_cutscene() -> void:
 	Controller.dialogue(dialogue_text_2, dialogue_positions_2, positions_to_use_2)
 	yield(Controller, "dialogue_ended")
 	
-	get_node(anim_player).play("Fade out")
+	#get_node(anim_player).play("Fade out")
+	Controller.fade(2, true)
 	get_node(anim_player_2).play("Music Fadeout")
 	yield(get_tree().create_timer(4.0), "timeout")
 	
+	Controller.fade(1, false)
 	get_tree().change_scene_to(target_scene)

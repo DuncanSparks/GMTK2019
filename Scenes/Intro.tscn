@@ -9,7 +9,7 @@
 [ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Audio/Music/LevelTheme.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Instances/Cutscenes/CutsceneIntro.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Test3.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/levels/Level_1.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade in"
@@ -153,4 +153,5 @@ autostart = true
 
 [node name="AnimationPlayerMusic" type="AnimationPlayer" parent="."]
 "anims/Music Fadeout" = SubResource( 3 )
+
 [connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]
