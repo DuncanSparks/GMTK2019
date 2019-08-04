@@ -106,5 +106,4 @@ anim_player = NodePath("../AnimationPlayer")
 wait_time = 2.5
 one_shot = true
 autostart = true
-
 [connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]

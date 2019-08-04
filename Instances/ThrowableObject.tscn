@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/ThrowableObject.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Torch.png" type="Texture" id=2]
@@ -53,6 +53,9 @@ color_ramp = SubResource( 7 )
 anim_speed = 3.0
 anim_offset = 1.0
 anim_offset_random = 1.0
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 84.8139
 
 [node name="ThrowableObject" type="KinematicBody2D" groups=[
 "Torch",
@@ -119,9 +122,16 @@ one_shot = true
 wait_time = 3.0
 one_shot = true
 
+[node name="LightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightArea"]
+shape = SubResource( 9 )
+one_way_collision = true
 [connection signal="body_entered" from="GrabArea" to="." method="_on_GrabArea_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_GrabArea_body_exited"]
 [connection signal="timeout" from="TimerDrop" to="." method="_on_TimerDrop_timeout"]
 [connection signal="timeout" from="TimerThrown" to="." method="_on_TimerThrown_timeout"]
 [connection signal="timeout" from="TimerReturn" to="." method="_on_TimerReturn_timeout"]
 [connection signal="timeout" from="TimerCooldown" to="." method="_on_TimerCooldown_timeout"]
+[connection signal="body_entered" from="LightArea" to="." method="_on_LightArea_body_entered"]
+[connection signal="body_exited" from="LightArea" to="." method="_on_LightArea_body_exited"]
