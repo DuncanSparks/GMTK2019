@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Audio/FX/TeleportSound.wav" type="AudioStream" id=2]
-[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 320, 40 )
@@ -53,11 +52,10 @@ shape = SubResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 516.237, 331.82 )
-teleport_sound = ExtResource( 2 )
 
 [node name="ThrowableObject" parent="." groups=[
 "Test",
-] instance=ExtResource( 3 )]
+] instance=ExtResource( 2 )]
 position = Vector2( 568.287, 337.495 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
@@ -71,9 +69,10 @@ __meta__ = {
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource( 3 )
 
-[node name="Guard2" parent="." instance=ExtResource( 4 )]
+[node name="Guard2" parent="." instance=ExtResource( 3 )]
 visible = false
 position = Vector2( 253.116, 242.883 )
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
 position = Vector2( 420.776, 427.709 )
+

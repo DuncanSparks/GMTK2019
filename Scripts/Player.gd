@@ -9,15 +9,19 @@ export(AudioStream) var jump_sound
 const GRAVITY: float = 600.0
 const JUMP_FORCE: float = 300.0
 const WALK_SPEED: int = 100
-const HOLD_POSITION: Vector2 = Vector2(0, -50)
+var HOLD_POSITION: Vector2 = Vector2(12, -12)
 
 var velocity: Vector2 = Vector2.ZERO
+var right := false
+var throwing := false
 
 var holding: bool = false
 var held_object: KinematicBody2D = null
 
 enum State { MOVE, NO_INPUT }
 var state = State.MOVE
+
+onready var anim_player := $AnimationPlayer2
 
 # ==========================================================
 
@@ -52,12 +56,14 @@ func _physics_process(delta: float) -> void:
 			
 			if Input.is_action_just_pressed("action_teleport"):
 				Controller.play_sound_burst(teleport_sound, rand_range(0.95, 1.05), -20)
-				set_position(held_object.get_position())
+				set_position(held_object.get_position() + Vector2(0, -10))
 			
 			if holding:
 				held_object.set_position(get_position() + HOLD_POSITION)
 				
 				if Input.is_action_just_pressed("action_throw"):
+					throwing = true
+					anim_player.play("ThrowRight" if right else "ThrowLeft")
 					holding = false
 					held_object.thrown = true
 					held_object.grabbable = false
@@ -76,6 +82,8 @@ func _physics_process(delta: float) -> void:
 					held_object.get_node("TimerDrop").start()
 					#held_object = null
 					
+	_animation()
+					
 	# Apply velocity to player
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 			
@@ -93,3 +101,32 @@ func trigger_progress_bar() -> void:
 
 func _jump() -> void:
 	velocity.y = -JUMP_FORCE
+	
+	
+func _end_throw() -> void:
+	throwing = false
+	
+	
+func _animation() -> void:
+	if velocity.x < 0:
+		right = false
+	elif velocity.x > 0:
+		right = true
+		
+	
+		
+	#if is_on_floor():
+	if not throwing:
+		if velocity.x != 0:
+			anim_player.play("WalkRight" if right else "WalkLeft")
+		else:
+			anim_player.play("IdleRight" if right else "IdleLeft")
+			
+	if state == State.NO_INPUT:
+		anim_player.play("IdleRight")
+		
+	#else:
+	#	anim_player.set_assigned_animation("JumpRight" if right else "JumpLeft")
+		
+	HOLD_POSITION.x = 12 if right else -11
+	

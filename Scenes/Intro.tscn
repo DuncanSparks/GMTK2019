@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/level_background.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Props/rock.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/Cutscenes/CutsceneIntro.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Test3.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade in"
@@ -23,6 +24,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fade out"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
 [node name="Scene" type="Node2D"]
@@ -75,6 +92,8 @@ __meta__ = {
 [node name="Sprite" parent="." instance=ExtResource( 5 )]
 position = Vector2( 608, 312 )
 
+[node name="Torch" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512, 328 )
 
@@ -91,6 +110,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Fade in" = SubResource( 1 )
+"anims/Fade out" = SubResource( 2 )
 
 [node name="CutsceneIntro" parent="." instance=ExtResource( 8 )]
 dialogue_text = PoolStringArray( "Ah. Another newly-lost spirit.", "You are in the Underworld, my boy.", "...What\?", "You have left the world of the living.", "What\? No! I can\'t be dead! I need to get back!", "Don\'t we all.", "It won\'t happen, boy. Fools try to escape all the time.", "They\'re always stopped by the guards.", "One lucky idiot almost made it out, but even he didn\'t succeed.", "You certainly won\'t be any different." )
@@ -101,9 +121,11 @@ dialogue_positions_2 = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
 positions_to_use_2 = PoolIntArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 dialogue_positions_3 = [ Vector2( 380, 240 ) ]
 anim_player = NodePath("../AnimationPlayer")
+target_scene = ExtResource( 9 )
 
 [node name="TimerStartCutscene" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
 autostart = true
+
 [connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]

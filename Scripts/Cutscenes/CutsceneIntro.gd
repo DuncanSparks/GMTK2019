@@ -14,6 +14,8 @@ export(PoolIntArray) var positions_to_use_3 = []
 
 export(NodePath) var anim_player
 
+export(PackedScene) var target_scene
+
 const Torch_Inst := preload("res://Instances/ThrowableObject.tscn")
 	
 	
@@ -22,6 +24,7 @@ func play_cutscene() -> void:
 	Controller.dialogue(dialogue_text_3, dialogue_positions_3, positions_to_use_3)
 	yield(Controller, "dialogue_ended")
 	
+	Controller.get_player().get_node("AnimationPlayer2").play("IdleRight")
 	get_node(anim_player).play("Fade in")
 	yield(get_tree().create_timer(2.5), "timeout")
 	
@@ -30,8 +33,13 @@ func play_cutscene() -> void:
 	
 	var torch := Torch_Inst.instance()
 	torch.set_position(Vector2(440, -150))
-	get_tree().get_root().add_child(torch)
+	get_tree().get_root().get_node("Scene").get_node("Torch").add_child(torch)
 	yield(get_tree().create_timer(3.0), "timeout")
 	
 	Controller.dialogue(dialogue_text_2, dialogue_positions_2, positions_to_use_2)
 	yield(Controller, "dialogue_ended")
+	
+	get_node(anim_player).play("Fade out")
+	yield(get_tree().create_timer(4.0), "timeout")
+	
+	get_tree().change_scene_to(target_scene)
