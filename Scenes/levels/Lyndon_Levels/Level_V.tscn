@@ -91,5 +91,4 @@ position = Vector2( 674.535, 304.931 )
 [node name="DarknessOverlay" parent="." instance=ExtResource( 11 )]
 
 [node name="Ambience" parent="." instance=ExtResource( 12 )]
-
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_DeathArea_body_entered"]

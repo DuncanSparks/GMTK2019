@@ -153,5 +153,4 @@ autostart = true
 
 [node name="AnimationPlayerMusic" type="AnimationPlayer" parent="."]
 "anims/Music Fadeout" = SubResource( 3 )
-
 [connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]
