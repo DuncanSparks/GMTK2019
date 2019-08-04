@@ -647,12 +647,12 @@ margin_top = 108.0
 margin_right = 866.0
 margin_bottom = 411.0
 custom_fonts/font = SubResource( 14 )
-text = "Rami Shreim - Design, Art
+text = "Rami Shreim - Design, Environment Art
 Riley Park - Writing, Design
 Duncan Sparks - Programming, Writing
 Johan Tan - Programming, Audio
 Lyndon de la Torre - Programming, Design
-Hunter Abaravich - Art"
+Hunter Abaravich - Character Art"
 align = 1
 
 [node name="TimerAction" type="Timer" parent="."]
