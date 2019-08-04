@@ -58,6 +58,7 @@ func _on_FrontVicinityArea_area_entered(area):
 		# get_node("FrontWeapon")._on_AnimationPlayer_animation_started("_setup")
 		attacking = true;
 		anim_player.play("HitRight")
+		$LilithNoises.randomized_playback()
 		yield(get_tree().create_timer(1.0), "timeout")
 		# get_node("FrontWeapon").hide()
 		
@@ -77,6 +78,7 @@ func _on_BackVicinityArea_area_entered(area):
 		# get_node("BackWeapon")._on_AnimationPlayer_animation_started("_setup")
 		attacking = true;
 		anim_player.play("HitLeft")
+		$LilithNoises.randomized_playback()
 		# anim_player.play("IdleLeft")
 		yield(get_tree().create_timer(1.0), "timeout")
 		WALK_SPEED = temp_speed
@@ -92,6 +94,7 @@ func _on_TopVicinityArea_area_entered(area):
 		WALK_SPEED = 0
 		attacking = true;
 		anim_player.play("HitUp")
+		$LilithNoises.randomized_playback()
 		yield(get_tree().create_timer(1.0), "timeout")
 
 
@@ -104,6 +107,7 @@ func _on_BottomVicinityArea_area_entered(area):
 		temp_speed = WALK_SPEED
 		WALK_SPEED = 0
 		anim_player.play("HitDown")
+		$LilithNoises.randomized_playback()
 		yield(get_tree().create_timer(3.0), "timeout")
 
 

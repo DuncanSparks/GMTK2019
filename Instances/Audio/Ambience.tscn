@@ -1,0 +1,25 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Audio/FX/CaveAmbience.wav" type="AudioStream" id=1]
+[ext_resource path="res://Audio/Music/LevelTheme.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Scripts/Audio/RandomizedAudio.gd" type="Script" id=3]
+[ext_resource path="res://Audio/FX/DropletSound.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/FX/DropletSound2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/FX/DropletSound3.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/FX/DropletSound4.wav" type="AudioStream" id=7]
+
+[node name="Ambience" type="Node2D"]
+
+[node name="MainCaveAmbience" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -35.0
+autoplay = true
+
+[node name="LevelMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -35.0
+autoplay = true
+
+[node name="Droplets" type="Node2D" parent="."]
+script = ExtResource( 3 )
+clips = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ]

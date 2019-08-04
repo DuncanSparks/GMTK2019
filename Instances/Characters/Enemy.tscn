@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Beez_R.png" type="Texture" id=5]
+[ext_resource path="res://Audio/FX/BeezFootstep.wav" type="AudioStream" id=2]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters/Beez_R.png" type="Texture" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.43054, 19.555 )
@@ -41,7 +42,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ), ExtResource( 2 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -70,7 +71,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -98,7 +99,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -126,15 +127,16 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
+"values": [ ExtResource( 6 ), ExtResource( 6 ) ]
 }
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 283.127, 239.555 )
 script = ExtResource( 1 )
+footstep = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 vframes = 4
 hframes = 4
 
