@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const FLOAT_SPEED: int = 70
+const FLOAT_SPEED: int = 50
 const STOP : int = 0
 
 var direction: Vector2 = Vector2.ZERO

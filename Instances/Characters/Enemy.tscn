@@ -173,7 +173,6 @@ anims/ChargeLeft = SubResource( 4 )
 anims/ChargeRight = SubResource( 5 )
 anims/WalkLeft = SubResource( 6 )
 anims/WalkRight = SubResource( 7 )
-
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
 [connection signal="body_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_entered"]
 [connection signal="body_exited" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_exited"]

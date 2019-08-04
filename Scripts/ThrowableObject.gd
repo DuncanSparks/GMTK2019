@@ -90,3 +90,14 @@ func _on_TimerReturn_timeout() -> void:
 
 func _on_TimerCooldown_timeout() -> void:
 	cooldown = false
+
+
+func _on_LightArea_body_entered(body):
+	if body != null and body.is_in_group("Player"):
+		player_in_area = true
+
+
+func _on_LightArea_body_exited(body):
+	if body != null and body.is_in_group("Player"):
+		player_in_area = false
+
