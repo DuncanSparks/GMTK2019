@@ -1,14 +1,15 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Audio/TeleportSound.wav" type="AudioStream" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/CDUnder.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/UI/CDBar.png" type="Texture" id=5]
+[ext_resource path="res://Audio/FX/TeleportSound.wav" type="AudioStream" id=2]
+[ext_resource path="res://Audio/FX/Jump.wav" type="AudioStream" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/CDUnder.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/CDBar.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -62,6 +63,7 @@ __meta__ = {
 "_edit_group_": true
 }
 teleport_sound = ExtResource( 2 )
+jump_sound = ExtResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.34375, 0.8125 )
@@ -83,8 +85,8 @@ margin_top = 507.0
 margin_right = 70.0
 margin_bottom = 514.0
 value = 100.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 5 )
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 6 )
 
 [node name="PlayerDetectArea" type="Area2D" parent="."]
 position = Vector2( 21, 6 )
@@ -97,4 +99,3 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitArea"]
 shape = SubResource( 6 )
-

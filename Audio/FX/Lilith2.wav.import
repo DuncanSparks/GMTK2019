@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lilith2.wav-a8dfc54ca70cfd697c6aff91e465aaed.sample"
+
+[deps]
+
+source_file="res://Audio/FX/Lilith2.wav"
+dest_files=[ "res://.import/Lilith2.wav-a8dfc54ca70cfd697c6aff91e465aaed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

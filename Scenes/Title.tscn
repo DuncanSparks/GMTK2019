@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Intro.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/SelectSound.wav" type="AudioStream" id=3]
-[ext_resource path="res://Audio/AcceptSound.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/FX/SelectSound.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/FX/AcceptSound.wav" type="AudioStream" id=4]
 [ext_resource path="res://Sprites/level_background.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Afterlight Logo.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/LIGHT.png" type="Texture" id=7]
@@ -615,7 +615,7 @@ anims/Exit = SubResource( 8 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
-volume_db = -20.0
+volume_db = -24.0
 autoplay = true
 
 [node name="Area1" type="Area2D" parent="."]
@@ -652,7 +652,6 @@ Hunter Abaravich - Art"
 align = 1
 
 [node name="SoundBurst" parent="." instance=ExtResource( 13 )]
-
 [connection signal="mouse_entered" from="Area1" to="." method="_on_Area1_mouse_entered"]
 [connection signal="mouse_exited" from="Area1" to="." method="_on_Area1_mouse_exited"]
 [connection signal="mouse_entered" from="Area2" to="." method="_on_Area2_mouse_entered"]

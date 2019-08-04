@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scripts/ThrowableObject.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Torch.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/LIGHT.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/fire_particle.png" type="Texture" id=4]
+[ext_resource path="res://Audio/FX/Fire.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -128,6 +129,10 @@ one_shot = true
 shape = SubResource( 9 )
 one_way_collision = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -30.0
+autoplay = true
 [connection signal="body_entered" from="GrabArea" to="." method="_on_GrabArea_body_entered"]
 [connection signal="body_exited" from="GrabArea" to="." method="_on_GrabArea_body_exited"]
 [connection signal="timeout" from="TimerDrop" to="." method="_on_TimerDrop_timeout"]

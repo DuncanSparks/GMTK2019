@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/SelectSound.wav-c99460b54e25a61b94f6e31010709dab.sample"
+path="res://.import/TeleportSound.wav-78d4df1d21b215f3f2c36ea03ddd8cc6.sample"
 
 [deps]
 
-source_file="res://Audio/SelectSound.wav"
-dest_files=[ "res://.import/SelectSound.wav-c99460b54e25a61b94f6e31010709dab.sample" ]
+source_file="res://Audio/FX/TeleportSound.wav"
+dest_files=[ "res://.import/TeleportSound.wav-78d4df1d21b215f3f2c36ea03ddd8cc6.sample" ]
 
 [params]
 

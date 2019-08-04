@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CaveAmbience.wav-8d1206d2a30cccbaf9c76b39557302e4.sample"
+
+[deps]
+
+source_file="res://Audio/FX/CaveAmbience.wav"
+dest_files=[ "res://.import/CaveAmbience.wav-8d1206d2a30cccbaf9c76b39557302e4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=48000.0
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

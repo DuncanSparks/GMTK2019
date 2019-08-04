@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Beez3.wav-910f163eb28592a85758b0f77a742385.sample"
+
+[deps]
+
+source_file="res://Audio/FX/Beez3.wav"
+dest_files=[ "res://.import/Beez3.wav-910f163eb28592a85758b0f77a742385.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
