@@ -32,8 +32,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GMTK Jam 2019"
-run/main_scene="res://Scenes/Test2.tscn"
+config/name="Afterlight"
+run/main_scene="res://Scenes/Title.tscn"
 config/icon="res://Torch.png"
 
 [audio]

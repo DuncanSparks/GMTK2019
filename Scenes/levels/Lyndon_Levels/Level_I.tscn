@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/level_background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/Props/ExitDoor.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/DeathArea.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Audio/Ambience.tscn" type="PackedScene" id=10]
 
 [node name="Scene" type="Node2D"]
 position = Vector2( 0.477184, -0.802155 )
@@ -63,3 +64,6 @@ position = Vector2( 869.16, 169.336 )
 position = Vector2( -16.3663, -79.356 )
 
 [node name="DarknessOverlay" parent="." instance=ExtResource( 9 )]
+
+[node name="Ambience" parent="." instance=ExtResource( 10 )]
+
