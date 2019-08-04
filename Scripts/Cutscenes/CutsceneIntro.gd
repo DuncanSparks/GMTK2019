@@ -22,6 +22,8 @@ const Torch_Inst := preload("res://Instances/ThrowableObject.tscn")
 	
 func play_cutscene() -> void:
 	Controller.get_player().state = 1
+	Controller.get_player().velocity = Vector2.ZERO
+	Controller.get_player().set_position(Vector2(512, 328))
 	Controller.dialogue(dialogue_text_3, dialogue_positions_3, positions_to_use_3)
 	yield(Controller, "dialogue_ended")
 	

@@ -1,14 +1,16 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Sprites/level_background.png" type="Texture" id=1]
 [ext_resource path="res://Instances/Props/ExitDoor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=4]
-[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=6]
-[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/levels/Lyndon_Levels/Level_III.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=5]
+[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/PitKill.gd" type="Script" id=9]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Audio/Ambience.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 563.378, 26.655 )
@@ -32,12 +34,13 @@ region_rect = Rect2( 0, 0, 1000, 1000 )
 
 [node name="ExitDoor" parent="." instance=ExtResource( 2 )]
 position = Vector2( 752.071, 338.351 )
+next_level = ExtResource( 3 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 127.006, 344.095 )
 
 [node name="TileMap3" type="TileMap" parent="."]
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 5 )
 cell_size = Vector2( 48, 48 )
 collision_layer = 3
 collision_mask = 3
@@ -47,7 +50,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ThrowableObject" parent="." instance=ExtResource( 5 )]
+[node name="ThrowableObject" parent="." instance=ExtResource( 6 )]
 position = Vector2( 66.9038, 349.776 )
 
 [node name="platform" type="StaticBody2D" parent="."]
@@ -57,12 +60,10 @@ collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="platform"]
 position = Vector2( 430, 300 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platform"]
 polygon = PoolVector2Array( 390, 280, 480, 280, 440, 310 )
-
-[node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
 
 [node name="Guard" parent="." instance=ExtResource( 8 )]
 position = Vector2( 118.099, 18.1994 )
@@ -76,4 +77,9 @@ script = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
 position = Vector2( 422.857, 654.448 )
 shape = SubResource( 1 )
+
+[node name="DarknessOverlay" parent="." instance=ExtResource( 10 )]
+
+[node name="Ambience" parent="." instance=ExtResource( 11 )]
+
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_DeathArea_body_entered"]
