@@ -15,6 +15,8 @@ var velocity: Vector2 = Vector2.ZERO
 var right := false
 var throwing := false
 
+var can_jump := false
+
 var holding: bool = false
 var held_object: KinematicBody2D = null
 
@@ -50,9 +52,10 @@ func _physics_process(delta: float) -> void:
 			velocity.x = (int(Input.is_action_pressed("move_right")) - int(Input.is_action_pressed("move_left"))) * WALK_SPEED
 			
 			# Jump
-			if Input.is_action_just_pressed("move_jump") and is_on_floor():
+			if Input.is_action_just_pressed("move_jump") and can_jump:
 				_jump()
 				Controller.play_sound_burst(jump_sound, rand_range(0.95, 1.05), -24)
+				can_jump = false
 			
 			if Input.is_action_just_pressed("action_teleport"):
 				Controller.play_sound_burst(teleport_sound, rand_range(0.95, 1.05), -20)
@@ -130,3 +133,8 @@ func _animation() -> void:
 		
 	HOLD_POSITION.x = 12 if right else -11
 	
+
+
+func _on_FloorArea_body_entered(body: PhysicsBody2D) -> void:
+	if body == null:
+		can_jump = true
