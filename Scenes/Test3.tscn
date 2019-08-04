@@ -102,4 +102,3 @@ volume_db = -35.0
 
 [node name="Lillith" parent="." instance=ExtResource( 13 )]
 position = Vector2( 380.536, 320 )
-
