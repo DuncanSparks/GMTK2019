@@ -147,20 +147,20 @@ func hit_right_off() -> void:
 #		anim_player.play("IdleLeft");
 
 func _on_AttackLeft_body_entered(body: PhysicsBody2D) -> void:
-	if body.is_in_group("Player"):
+	if body != null and body.is_in_group("Player"):
 		player_in_left = true
 
 
 func _on_AttackLeft_body_exited(body: PhysicsBody2D) -> void:
-	if body.is_in_group("Player"):
+	if body != null and body.is_in_group("Player"):
 		player_in_left = false
 
 
 func _on_AttackRight_body_entered(body: PhysicsBody2D) -> void:
-	if body.is_in_group("Player"):
+	if body != null and body.is_in_group("Player"):
 		player_in_right = true
 
 
 func _on_AttackRight_body_exited(body: PhysicsBody2D) -> void:
-	if body.is_in_group("Player"):
+	if body != null and body.is_in_group("Player"):
 		player_in_right = false

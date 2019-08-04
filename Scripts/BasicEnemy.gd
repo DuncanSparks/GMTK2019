@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 export (AudioStream) var footstep
 
+export(Array, AudioStream) var sounds
+
 const GRAVITY: float = 600.0
 const JUMP_FORCE: float = 300.0
 var WALK_SPEED: int = -100
@@ -78,18 +80,19 @@ func _on_HitArea_body_entered(body: PhysicsBody2D) -> void:
 	if body != null and body.is_in_group("Player"):
 		get_tree().reload_current_scene()
 		
-	if body != null and body.is_in_group("Torch"):
-		temp_speed = WALK_SPEED
-		WALK_SPEED = 0
+	#Eif body != null and body.is_in_group("Torch"):
+	#	temp_speed = WALK_SPEED
+	#	WALK_SPEED = 0
 
-		yield(get_tree().create_timer(3.0), "timeout")
-		WALK_SPEED = temp_speed
-		temp_speed = 0
+	#	yield(get_tree().create_timer(3.0), "timeout")
+	#	WALK_SPEED = temp_speed
+	#	temp_speed = 0
 
 
 func _on_PlayerAreaVicinityFront_body_entered(body: PhysicsBody2D) -> void:
 	if body != null and body.is_in_group("Player"):
 		WALK_SPEED *= 3
+		Controller.play_sound_burst(sounds[randi() % len(sounds)], 1, -20)
 		anim_player.play("ChargeLeft" if sign(WALK_SPEED) == -1 else "ChargeRight")
 		charging = true
 
@@ -104,6 +107,7 @@ func _on_PlayerAreaVicinityFront_body_exited(body: PhysicsBody2D) -> void:
 func _on_PlayerAreaVicinityBack_body_entered(body: PhysicsBody2D) -> void:
 	if body != null and body.is_in_group("Player"):
 		WALK_SPEED *= 3
+		Controller.play_sound_burst(sounds[randi() % len(sounds)], 1, -20)
 		anim_player.play("WalkLeft" if sign(WALK_SPEED) == -1 else "WalkRight")
 		charging = true
 

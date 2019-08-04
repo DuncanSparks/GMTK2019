@@ -58,9 +58,11 @@ func _physics_process(delta: float) -> void:
 				Controller.play_sound_burst(jump_sound, rand_range(0.95, 1.05), -24)
 				can_jump = false
 			
-			if Input.is_action_just_pressed("action_teleport"):
+			if Input.is_action_just_pressed("action_teleport") and not holding and held_object.can_teleport:
 				Controller.play_sound_burst(teleport_sound, rand_range(0.95, 1.05), -20)
-				set_position(held_object.get_position() + Vector2(0, -10))
+				set_position(held_object.get_position() + Vector2(0, 0))
+				
+				#velocity = Vector2(1, 500)
 			
 			if holding:
 				held_object.set_position(get_position() + HOLD_POSITION)

@@ -15,6 +15,8 @@ var spin_speed: float = 100.0
 
 var velocity: Vector2 = Vector2.ZERO
 
+var can_teleport := true
+
 onready var coll := $CollisionShape2D
 onready var spr := $Sprite
 
@@ -95,9 +97,15 @@ func _on_TimerCooldown_timeout() -> void:
 func _on_LightArea_body_entered(body):
 	if body != null and body.is_in_group("Player"):
 		player_in_area = true
+		
+	if body == null:
+		can_teleport = false
 
 
 func _on_LightArea_body_exited(body):
 	if body != null and body.is_in_group("Player"):
 		player_in_area = false
+		
+	if body == null:
+		can_teleport = true
 
