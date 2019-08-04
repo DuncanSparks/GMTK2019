@@ -1,5 +1,9 @@
 extends Node2D
 
+export(PackedScene) var start_scene
+export(AudioStream) var hover_sound
+export(AudioStream) var click_sound
+
 var over: int = -1
 var input: bool = false
 var credits: bool = false
@@ -12,10 +16,9 @@ func _process(delta: float) -> void:
 			input = false
 			match over:
 				0:
-					print("ONE")
+					anim_player.play("Start Game")
 				1:
 					anim_player.play("Credits In")
-					#credits = true
 				2:
 					anim_player.play("Exit")
 		if credits:
@@ -29,6 +32,10 @@ func enable_input() -> void:
 	
 func enable_credits() -> void:
 	credits = true
+	
+	
+func start_game() -> void:
+	get_tree().change_scene_to(start_scene)
 
 
 func exit_game() -> void:
@@ -37,14 +44,17 @@ func exit_game() -> void:
 
 func _on_Area1_mouse_entered() -> void:
 	over = 0
+	Controller.play_sound_burst(hover_sound, 1, -20)
 
 
 func _on_Area2_mouse_entered() -> void:
 	over = 1
+	Controller.play_sound_burst(hover_sound, 1, -20)
 
 
 func _on_Area3_mouse_entered() -> void:
 	over = 2
+	Controller.play_sound_burst(hover_sound, 1, -20)
 
 
 func _on_Area1_mouse_exited() -> void:
