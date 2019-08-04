@@ -1,11 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=1]
 [ext_resource path="res://Audio/FX/BeezFootstep.wav" type="AudioStream" id=2]
-[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters/Beez_R.png" type="Texture" id=6]
+[ext_resource path="res://Audio/FX/Beez1.wav" type="AudioStream" id=3]
+[ext_resource path="res://Audio/FX/Beez2.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/FX/Beez3.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/FX/Beez4.wav" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Beez_R.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 9.43054, 19.555 )
@@ -42,7 +46,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
+"values": [ ExtResource( 7 ), ExtResource( 7 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -71,7 +75,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1.9 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 8 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -99,7 +103,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
+"values": [ ExtResource( 9 ), ExtResource( 9 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -127,16 +131,17 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 2.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 6 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 10 ), ExtResource( 10 ) ]
 }
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 283.127, 239.555 )
 script = ExtResource( 1 )
 footstep = ExtResource( 2 )
+sounds = [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
+texture = ExtResource( 7 )
 vframes = 4
 hframes = 4
 
@@ -175,6 +180,7 @@ anims/ChargeLeft = SubResource( 4 )
 anims/ChargeRight = SubResource( 5 )
 anims/WalkLeft = SubResource( 6 )
 anims/WalkRight = SubResource( 7 )
+
 [connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
 [connection signal="body_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_entered"]
 [connection signal="body_exited" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_exited"]
