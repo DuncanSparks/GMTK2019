@@ -46,7 +46,7 @@ position = Vector2( 560, 270 )
 texture = ExtResource( 3 )
 
 [node name="Lillith" parent="." instance=ExtResource( 4 )]
-position = Vector2( 740, 208.978 )
+position = Vector2( 730, 208.978 )
 
 [node name="ExitDoor" parent="." instance=ExtResource( 5 )]
 position = Vector2( 860, 240 )
