@@ -7,7 +7,7 @@
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Platform1.png" type="Texture" id=6]
 [ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/Guard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/levels/PitKill.gd" type="Script" id=9]
 [ext_resource path="res://Instances/Characters/Lillith.tscn" type="PackedScene" id=10]
 
@@ -81,4 +81,5 @@ shape = SubResource( 1 )
 [node name="Lillith" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 368.641, 325.322 )
+
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_DeathArea_body_entered"]
