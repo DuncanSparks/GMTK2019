@@ -71,8 +71,8 @@ polygon = PoolVector2Array( 390, 280, 480, 280, 440, 310 )
 position = Vector2( 12.57, -58.1361 )
 script = ExtResource( 8 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 435.427, 596.312 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+position = Vector2( 422.857, 654.448 )
 shape = SubResource( 1 )
 
 [node name="Guard" parent="." instance=ExtResource( 9 )]
@@ -87,5 +87,4 @@ position = Vector2( 760.376, 214.531 )
 [node name="DarknessOverlay" parent="." instance=ExtResource( 11 )]
 
 [node name="Ambience" parent="." instance=ExtResource( 12 )]
-
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_DeathArea_body_entered"]
