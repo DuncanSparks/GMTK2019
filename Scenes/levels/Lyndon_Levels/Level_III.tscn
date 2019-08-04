@@ -85,4 +85,5 @@ shape = SubResource( 1 )
 [node name="Lillith" parent="." instance=ExtResource( 10 )]
 visible = false
 position = Vector2( 368.641, 325.322 )
+
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_DeathArea_body_entered"]
