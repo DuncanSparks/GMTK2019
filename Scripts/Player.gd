@@ -63,6 +63,9 @@ func _physics_process(delta: float) -> void:
 				set_position(held_object.get_position() + Vector2(0, 0))
 				
 				#velocity = Vector2(1, 500)
+				
+			if Input.is_action_just_pressed("action_reset"):
+				get_tree().reload_current_scene()
 			
 			if holding:
 				held_object.set_position(get_position() + HOLD_POSITION)
