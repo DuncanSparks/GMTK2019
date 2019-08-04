@@ -10,6 +10,8 @@ var player = null;
 enum State { MOVE, STOP }
 var state = State.STOP
 
+onready var anim_player := $AnimationPlayer
+
 func _ready():
 	player = Controller.get_player()
 	throwableObject = get_tree().get_root().get_node("Scene").get_node("ThrowableObject")
@@ -27,6 +29,8 @@ func _physics_process(delta):
 			direction = (player.position - position).normalized() * STOP
 			
 	direction = move_and_slide(direction, player.position)
+	
+	anim_player.set_assigned_animation("Left" if direction.x < 0 else "Right")
 
 func _on_KillArea_area_entered(area):
 	print()

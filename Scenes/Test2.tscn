@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Guard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Instances/Characters/Guard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
