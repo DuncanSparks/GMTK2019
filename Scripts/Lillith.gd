@@ -54,7 +54,7 @@ func _on_TopVicinityArea_area_entered(area):
 		WALK_SPEED = -50
 		velocity = move_and_slide(velocity, area.position)
 		
-	if area.name == "DetectArea":
+	if area.name == "PlayerDetectArea":
 		temp_speed = WALK_SPEED
 		WALK_SPEED = 0
 		get_node("TopWeapon").show()
@@ -68,10 +68,15 @@ func _on_BottomVicinityArea_area_entered(area):
 		WALK_SPEED = -50
 		velocity = move_and_slide(velocity, area.position)
 		
-	if area.name == "DetectArea":
+	if area.name == "PlayerDetectArea":
 		temp_speed = WALK_SPEED
 		WALK_SPEED = 0
 		get_node("BottomWeapon").show()
 		get_node("BottomWeapon")._on_AnimationPlayer_animation_started("_setup")
 		yield(get_tree().create_timer(3.0), "timeout")
 		get_node("BottomWeapon").hide()
+
+
+func _on_HitArea_body_shape_entered(body_id, body, body_shape, area_shape):
+	if body.name == "Player":
+		print("shp[")
