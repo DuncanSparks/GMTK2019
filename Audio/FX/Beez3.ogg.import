@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Beez3.ogg-e22c9f4f65c744a9f6e8a5841ecd9ca3.oggstr"
+
+[deps]
+
+source_file="res://Audio/FX/Beez3.ogg"
+dest_files=[ "res://.import/Beez3.ogg-e22c9f4f65c744a9f6e8a5841ecd9ca3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

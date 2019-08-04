@@ -10,7 +10,7 @@
 [ext_resource path="res://Sprites/UI/Play.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/UI/Credits.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/UI/Exit.png" type="Texture" id=10]
-[ext_resource path="res://Audio/Music/MainTheme.wav" type="AudioStream" id=11]
+[ext_resource path="res://Audio/Music/MainTheme.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Fonts/PixelOperator.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://Instances/SoundBurst.tscn" type="PackedScene" id=13]
 
@@ -652,7 +652,6 @@ Hunter Abaravich - Art"
 align = 1
 
 [node name="SoundBurst" parent="." instance=ExtResource( 13 )]
-
 [connection signal="mouse_entered" from="Area1" to="." method="_on_Area1_mouse_entered"]
 [connection signal="mouse_exited" from="Area1" to="." method="_on_Area1_mouse_exited"]
 [connection signal="mouse_entered" from="Area2" to="." method="_on_Area2_mouse_entered"]

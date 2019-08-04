@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DialogueBlip.ogg-5d738ebd58474e0a40ac73bfc5da0a90.oggstr"
+
+[deps]
+
+source_file="res://Audio/FX/DialogueBlip.ogg"
+dest_files=[ "res://.import/DialogueBlip.ogg-5d738ebd58474e0a40ac73bfc5da0a90.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

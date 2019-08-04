@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Jump.ogg-263bbb703d89d138a63517a390bf50c8.oggstr"
+
+[deps]
+
+source_file="res://Audio/FX/Jump.ogg"
+dest_files=[ "res://.import/Jump.ogg-263bbb703d89d138a63517a390bf50c8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
