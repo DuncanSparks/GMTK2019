@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Instances/Audio/Ambience.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/level_background.png" type="Texture" id=2]
@@ -8,9 +8,10 @@
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=7]
 [ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=10]
-[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Instances/DeathArea.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Characters/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=12]
 
 [node name="Scene" type="Node2D"]
 
@@ -75,7 +76,9 @@ __meta__ = {
 [node name="ThrowableObject" parent="." instance=ExtResource( 8 )]
 position = Vector2( 110, 210 )
 
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
+[node name="DeathArea" parent="." instance=ExtResource( 9 )]
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
 position = Vector2( 500, 170 )
 
 [node name="platform" type="StaticBody2D" parent="."]
@@ -90,7 +93,7 @@ polygon = PoolVector2Array( -10, -10, 87.2407, -9.01837, 60, 14, 20, 10 )
 
 [node name="Sprite" type="Sprite" parent="platform"]
 position = Vector2( 740, 320 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 
-[node name="DarknessOverlay" parent="." instance=ExtResource( 11 )]
+[node name="DarknessOverlay" parent="." instance=ExtResource( 12 )]
 
