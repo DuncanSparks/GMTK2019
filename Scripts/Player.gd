@@ -118,15 +118,20 @@ func _animation() -> void:
 		
 	
 		
-	#if is_on_floor():
 	if not throwing:
-		if velocity.x != 0:
-			anim_player.play("WalkRight" if right else "WalkLeft")
+		if can_jump:
+			if velocity.x != 0:
+				anim_player.play("WalkRight" if right else "WalkLeft")
+			else:
+				anim_player.play("IdleRight" if right else "IdleLeft")
 		else:
-			anim_player.play("IdleRight" if right else "IdleLeft")
-			
+			anim_player.play("JumpRight" if right else "JumpLeft")
+	else:
+		anim_player.play("ThrowRight" if right else "ThrowLeft")
+		
 	if state == State.NO_INPUT:
 		anim_player.play("IdleRight")
+	
 		
 	#else:
 	#	anim_player.set_assigned_animation("JumpRight" if right else "JumpLeft")
