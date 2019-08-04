@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample"
+path="res://.import/Guard1.wav-f7a5c87035ab2cbf82a474f92c484390.sample"
 
 [deps]
 
-source_file="res://Audio/FX/DialogueBlip.wav"
-dest_files=[ "res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample" ]
+source_file="res://Audio/FX/Guard1.wav"
+dest_files=[ "res://.import/Guard1.wav-f7a5c87035ab2cbf82a474f92c484390.sample" ]
 
 [params]
 

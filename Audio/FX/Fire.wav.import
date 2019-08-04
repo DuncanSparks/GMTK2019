@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/LevelTheme.wav-579616941df3871f28aa3f58e3f9ba0d.sample"
+path="res://.import/Fire.wav-8119a3c695237234ee25043ad0e20265.sample"
 
 [deps]
 
-source_file="res://Audio/Music/LevelTheme.wav"
-dest_files=[ "res://.import/LevelTheme.wav-579616941df3871f28aa3f58e3f9ba0d.sample" ]
+source_file="res://Audio/FX/Fire.wav"
+dest_files=[ "res://.import/Fire.wav-8119a3c695237234ee25043ad0e20265.sample" ]
 
 [params]
 

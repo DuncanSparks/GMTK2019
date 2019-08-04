@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample"
+path="res://.import/Lilith.wav-08017ec19d754b745a5ac9e9730e9c44.sample"
 
 [deps]
 
-source_file="res://Audio/FX/DialogueBlip.wav"
-dest_files=[ "res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample" ]
+source_file="res://Audio/FX/Lilith.wav"
+dest_files=[ "res://.import/Lilith.wav-08017ec19d754b745a5ac9e9730e9c44.sample" ]
 
 [params]
 

@@ -3,6 +3,8 @@ extends KinematicBody2D
 class_name Player
 
 export(AudioStream) var teleport_sound
+export(AudioStream) var walk_sound
+export(AudioStream) var jump_sound
 
 const GRAVITY: float = 600.0
 const JUMP_FORCE: float = 300.0
@@ -46,6 +48,7 @@ func _physics_process(delta: float) -> void:
 			# Jump
 			if Input.is_action_just_pressed("move_jump") and is_on_floor():
 				_jump()
+				Controller.play_sound_burst(jump_sound, rand_range(0.95, 1.05), -24)
 			
 			if Input.is_action_just_pressed("action_teleport"):
 				Controller.play_sound_burst(teleport_sound, rand_range(0.95, 1.05), -20)

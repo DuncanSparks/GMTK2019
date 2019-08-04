@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/AcceptSound.wav-c80ebdb1e2634161e9ad78695845fb4d.sample"
+path="res://.import/AcceptSound.wav-78c26ccef0a4895c414f6abbe0976a2f.sample"
 
 [deps]
 
-source_file="res://Audio/AcceptSound.wav"
-dest_files=[ "res://.import/AcceptSound.wav-c80ebdb1e2634161e9ad78695845fb4d.sample" ]
+source_file="res://Audio/FX/AcceptSound.wav"
+dest_files=[ "res://.import/AcceptSound.wav-78c26ccef0a4895c414f6abbe0976a2f.sample" ]
 
 [params]
 

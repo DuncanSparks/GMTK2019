@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/LevelTheme.wav-579616941df3871f28aa3f58e3f9ba0d.sample"
+path="res://.import/CaveAmbience.wav-8d1206d2a30cccbaf9c76b39557302e4.sample"
 
 [deps]
 
-source_file="res://Audio/Music/LevelTheme.wav"
-dest_files=[ "res://.import/LevelTheme.wav-579616941df3871f28aa3f58e3f9ba0d.sample" ]
+source_file="res://Audio/FX/CaveAmbience.wav"
+dest_files=[ "res://.import/CaveAmbience.wav-8d1206d2a30cccbaf9c76b39557302e4.sample" ]
 
 [params]
 

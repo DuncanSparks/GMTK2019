@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample"
+path="res://.import/Walk.wav-8a8ec8b97c5d16a98f5fc855cc4b2566.sample"
 
 [deps]
 
-source_file="res://Audio/FX/DialogueBlip.wav"
-dest_files=[ "res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample" ]
+source_file="res://Audio/FX/Walk.wav"
+dest_files=[ "res://.import/Walk.wav-8a8ec8b97c5d16a98f5fc855cc4b2566.sample" ]
 
 [params]
 

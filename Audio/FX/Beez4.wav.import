@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample"
+path="res://.import/Beez4.wav-0b77f643b665f0b0756c73cbea05c1f3.sample"
 
 [deps]
 
-source_file="res://Audio/FX/DialogueBlip.wav"
-dest_files=[ "res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample" ]
+source_file="res://Audio/FX/Beez4.wav"
+dest_files=[ "res://.import/Beez4.wav-0b77f643b665f0b0756c73cbea05c1f3.sample" ]
 
 [params]
 

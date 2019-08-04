@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample"
+path="res://.import/DropletSound.wav-8eb87b712ecb25b7f607ad74bdb181c1.sample"
 
 [deps]
 
-source_file="res://Audio/FX/DialogueBlip.wav"
-dest_files=[ "res://.import/DialogueBlip.wav-65418ce9ac1926b2b3fe10530f0733a8.sample" ]
+source_file="res://Audio/FX/DropletSound.wav"
+dest_files=[ "res://.import/DropletSound.wav-8eb87b712ecb25b7f607ad74bdb181c1.sample" ]
 
 [params]
 
