@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Sprites/level_background.png" type="Texture" id=1]
+[ext_resource path="res://Instances/Props/ExitDoor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Tilesets/TilesetGround.tres" type="TileSet" id=4]
+[ext_resource path="res://Instances/ThrowableObject.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Platform1.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/DeathArea.tscn" type="PackedScene" id=8]
+
+[node name="Scene" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 960.0
+margin_bottom = 540.0
+color = Color( 0.101961, 0.101961, 0.101961, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.682353, 0.603922, 0.603922, 1 )
+position = Vector2( 430, 160 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 1000, 1000 )
+
+[node name="ExitDoor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 282.516, 481.789 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 140.618, 45.8759 )
+
+[node name="TileMap3" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 48, 48 )
+collision_layer = 3
+collision_mask = 3
+format = 1
+tile_data = PoolIntArray( -131074, 4, 0, -131073, 4, 0, -196608, 4, 0, -196607, 4, 0, -196606, 4, 0, -196605, 4, 0, -196604, 4, 0, -196603, 4, 0, -196602, 4, 0, -196601, 4, 0, -196600, 4, 0, -196599, 4, 0, -196598, 4, 0, -196597, 4, 0, -196596, 4, 0, -196595, 4, 0, -196594, 4, 0, -196593, 4, 0, -196592, 4, 0, -196591, 4, 0, -196590, 4, 0, -196589, 4, 0, -65538, 4, 0, -65537, 4, 0, -131072, 4, 0, -131071, 4, 0, -131070, 4, 0, -131069, 4, 0, -131068, 4, 0, -131067, 4, 0, -131066, 4, 0, -131065, 4, 0, -131064, 4, 0, -131063, 4, 0, -131062, 4, 0, -131061, 4, 0, -131060, 4, 0, -131059, 4, 0, -131058, 4, 0, -131057, 4, 0, -131056, 4, 0, -131055, 4, 0, -131054, 4, 0, -131053, 4, 0, -2, 4, 0, -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0, -65519, 4, 0, -65518, 4, 0, -65517, 4, 0, 65534, 4, 0, 4, 3, 0, 5, 5, 0, 18, 4, 0, 19, 4, 0, 131070, 4, 0, 65540, 3, 0, 65541, 5, 0, 65554, 4, 0, 65555, 4, 0, 196606, 4, 0, 131074, 4, 0, 131075, 1, 0, 131076, 4, 0, 131077, 5, 0, 131090, 4, 0, 131091, 4, 0, 262142, 4, 0, 196610, 4, 0, 196613, 8, 0, 196616, 4, 0, 196626, 4, 0, 196627, 4, 0, 327678, 4, 0, 262152, 4, 0, 262162, 4, 0, 262163, 4, 0, 393214, 4, 0, 327688, 4, 0, 327698, 4, 0, 327699, 4, 0, 458750, 4, 0, 393219, 4, 0, 393224, 4, 0, 393234, 4, 0, 393235, 4, 0, 524286, 4, 0, 458755, 4, 0, 458756, 4, 0, 458757, 4, 0, 458758, 4, 0, 458759, 4, 0, 458760, 4, 0, 458770, 4, 0, 458771, 4, 0, 589822, 4, 0, 524291, 4, 0, 524306, 4, 0, 524307, 4, 0, 655358, 4, 0, 589827, 4, 0, 589842, 4, 0, 589843, 4, 0, 720894, 4, 0, 655363, 4, 0, 655378, 4, 0, 655379, 4, 0, 786430, 4, 0, 720899, 4, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 4, 0, 720914, 4, 0, 720915, 4, 0, 851966, 4, 0, 786435, 4, 0, 786436, 4, 0, 786437, 4, 0, 786438, 4, 0, 786439, 4, 0, 786440, 4, 0, 786441, 4, 0, 786442, 4, 0, 786443, 4, 0, 786444, 4, 0, 786445, 4, 0, 786446, 4, 0, 786447, 4, 0, 786448, 4, 0, 786449, 4, 0, 786450, 4, 0, 786451, 4, 0, 917502, 4, 0, 917503, 4, 0, 851968, 4, 0, 851969, 4, 0, 851970, 4, 0, 851971, 4, 0, 851972, 4, 0, 851973, 4, 0, 851974, 4, 0, 851975, 4, 0, 851976, 4, 0, 851977, 4, 0, 851978, 4, 0, 851979, 4, 0, 851980, 4, 0, 851981, 4, 0, 851982, 4, 0, 851983, 4, 0, 851984, 4, 0, 851985, 4, 0, 851986, 4, 0, 851987, 4, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ThrowableObject" parent="." instance=ExtResource( 5 )]
+position = Vector2( 143.744, 60.3689 )
+
+[node name="platform" type="StaticBody2D" parent="."]
+editor/display_folded = true
+visible = false
+position = Vector2( 94.954, 163.893 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="Sprite" type="Sprite" parent="platform"]
+position = Vector2( 430, 300 )
+texture = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="platform"]
+polygon = PoolVector2Array( 390, 280, 480, 280, 440, 310 )
+
+[node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
+
+[node name="DeathArea" parent="." instance=ExtResource( 8 )]
