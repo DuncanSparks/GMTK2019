@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Lillith.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters/Lilith_HitR.png" type="Texture" id=2]
@@ -28,7 +28,7 @@ extents = Vector2( 31.7663, 32.7258 )
 
 [sub_resource type="Animation" id=5]
 resource_name = "HitLeft"
-loop = true
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -36,10 +36,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:texture")
@@ -77,10 +77,41 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 7 ]
 }
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit_left_on"
+}, {
+"args": [  ],
+"method": "hit_left_off"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "IdleLeft", -1, 1.0, false ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "HitRight"
-loop = true
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -88,10 +119,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Sprite:texture")
@@ -128,6 +159,37 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 7 ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hit_right_on"
+}, {
+"args": [  ],
+"method": "hit_right_off"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "IdleRight", -1, 1.0, false ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -354,6 +416,9 @@ tracks/1/keys = {
 "values": [ ExtResource( 8 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 28.018, 22.37 )
+
 [node name="Lillith" type="KinematicBody2D"]
 position = Vector2( 231.982, 422.37 )
 script = ExtResource( 1 )
@@ -362,7 +427,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 7
-frame = 1
+frame = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.142395, 0 )
@@ -371,14 +436,14 @@ shape = SubResource( 1 )
 [node name="FrontVicinityArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FrontVicinityArea"]
-position = Vector2( 69.5505, -0.0706146 )
+position = Vector2( 28.018, -0.51077 )
 shape = SubResource( 2 )
 
 [node name="BackVicinityArea" type="Area2D" parent="."]
 position = Vector2( -179.571, -0.440125 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackVicinityArea"]
-position = Vector2( 108.601, -0.0706451 )
+position = Vector2( 147.589, 0.440128 )
 shape = SubResource( 2 )
 
 [node name="TopVicinityArea" type="Area2D" parent="."]
@@ -446,12 +511,28 @@ anims/WalkRight = SubResource( 12 )
 [node name="LilithNoises" type="Node2D" parent="."]
 script = ExtResource( 9 )
 clips = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ]
+
+[node name="AttackLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackLeft"]
+position = Vector2( -10, -20 )
+shape = SubResource( 13 )
+
+[node name="AttackRight" type="Area2D" parent="."]
+position = Vector2( 30, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRight"]
+position = Vector2( -10, -20 )
+shape = SubResource( 13 )
+
 [connection signal="area_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_area_entered"]
 [connection signal="body_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_entered"]
 [connection signal="body_shape_entered" from="FrontVicinityArea" to="." method="_on_FrontVicinityArea_body_shape_entered"]
 [connection signal="area_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_area_entered"]
 [connection signal="body_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_body_entered"]
 [connection signal="body_shape_entered" from="BackVicinityArea" to="." method="_on_BackVicinityArea_body_shape_entered"]
-[connection signal="area_entered" from="TopVicinityArea" to="." method="_on_TopVicinityArea_area_entered"]
-[connection signal="area_entered" from="BottomVicinityArea" to="." method="_on_BottomVicinityArea_area_entered"]
 [connection signal="body_shape_entered" from="HitArea" to="." method="_on_HitArea_body_shape_entered"]
+[connection signal="body_entered" from="AttackLeft" to="." method="_on_AttackLeft_body_entered"]
+[connection signal="body_exited" from="AttackLeft" to="." method="_on_AttackLeft_body_exited"]
+[connection signal="body_entered" from="AttackRight" to="." method="_on_AttackRight_body_entered"]
+[connection signal="body_exited" from="AttackRight" to="." method="_on_AttackRight_body_exited"]
