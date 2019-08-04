@@ -3,12 +3,12 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Audio/FX/TeleportSound.wav" type="AudioStream" id=2]
 [ext_resource path="res://Audio/FX/Jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://Sprites/Characters/Oliver_IdleR.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Oliver_JumpR.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/UI/CDUnder.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/CDBar.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters/Oliver_IdleL.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters/Oliver_JumpL.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters/Oliver_JumpR.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters/Oliver_IdleR.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters/Oliver_JumpL.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters/Oliver_ThrowL.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters/Oliver_ThrowR.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters/Oliver_L.png" type="Texture" id=12]
@@ -53,11 +53,10 @@ extents = Vector2( 30, 49 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 11.8099, 45 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 9, 10 )
 
-[sub_resource type="Animation" id=6]
-resource_name = "IdleLeft"
+[sub_resource type="Animation" id=7]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -121,8 +120,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "IdleRight"
+[sub_resource type="Animation" id=8]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -147,7 +145,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 6.49802 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 8 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite2:vframes")
@@ -186,7 +184,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=15]
 resource_name = "JumpLeft"
 length = 0.6
 step = 0.05
@@ -210,60 +208,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 2.54912 ),
-"update": 1,
-"values": [ ExtResource( 8 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite2:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 1 ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Sprite2:hframes")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 17 ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "JumpRight"
-length = 0.6
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite2:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite2:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 0.999999 ),
 "update": 1,
 "values": [ ExtResource( 9 ) ]
 }
@@ -291,9 +236,84 @@ tracks/3/keys = {
 "update": 1,
 "values": [ 17 ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -20 ), Vector2( 0, -20 ), Vector2( 0, -14 ), Vector2( 0, -8 ), Vector2( 0, -2 ), Vector2( 0, 24 ), Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, -14 ), Vector2( 0, -20 ), Vector2( 0, -20 ) ]
+}
 
 [sub_resource type="Animation" id=10]
-resource_name = "ThrowLeft"
+length = 0.6
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 4, 3, 2, 1, 0, 1, 2, 3, 4, 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 0.999999 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite2:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite2:hframes")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 17 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, -20 ), Vector2( 0, -20 ), Vector2( 0, -14 ), Vector2( 0, -8 ), Vector2( 0, -2 ), Vector2( 0, 24 ), Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, -14 ), Vector2( 0, -20 ), Vector2( 0, -20 ) ]
+}
+
+[sub_resource type="Animation" id=11]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -385,8 +405,7 @@ tracks/6/keys = {
 "values": [ Vector2( -9, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "ThrowRight"
+[sub_resource type="Animation" id=12]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -478,7 +497,7 @@ tracks/6/keys = {
 "values": [ Vector2( 9, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:frame")
@@ -541,7 +560,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=14]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite2:frame")
@@ -616,8 +635,10 @@ teleport_sound = ExtResource( 2 )
 jump_sound = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, -20 )
 texture = ExtResource( 4 )
-vframes = 2
+hframes = 17
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -654,17 +675,17 @@ shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea"]
 position = Vector2( 0, 44 )
-shape = SubResource( 14 )
+shape = SubResource( 6 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "IdleRight"
-anims/IdleLeft = SubResource( 6 )
-anims/IdleRight = SubResource( 7 )
-anims/JumpLeft = SubResource( 8 )
-anims/JumpRight = SubResource( 9 )
-anims/ThrowLeft = SubResource( 10 )
-anims/ThrowRight = SubResource( 11 )
-anims/WalkLeft = SubResource( 12 )
-anims/WalkRight = SubResource( 13 )
+anims/IdleLeft = SubResource( 7 )
+anims/IdleRight = SubResource( 8 )
+anims/JumpLeft = SubResource( 15 )
+anims/JumpRight = SubResource( 10 )
+anims/ThrowLeft = SubResource( 11 )
+anims/ThrowRight = SubResource( 12 )
+anims/WalkLeft = SubResource( 13 )
+anims/WalkRight = SubResource( 14 )
 
 [connection signal="body_entered" from="FloorArea" to="." method="_on_FloorArea_body_entered"]
