@@ -24,6 +24,7 @@ enum State { MOVE, NO_INPUT }
 var state = State.MOVE
 
 onready var anim_player := $AnimationPlayer2
+onready var spr := $Sprite2
 
 # ==========================================================
 
@@ -125,6 +126,8 @@ func _animation() -> void:
 			else:
 				anim_player.play("IdleRight" if right else "IdleLeft")
 		else:
+			spr.vframes = 1
+			spr.hframes = 17
 			anim_player.play("JumpRight" if right else "JumpLeft")
 	else:
 		anim_player.play("ThrowRight" if right else "ThrowLeft")
