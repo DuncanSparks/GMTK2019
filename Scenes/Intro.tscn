@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Sprites/level_background.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Props/rock.png" type="Texture" id=2]
@@ -7,8 +7,9 @@
 [ext_resource path="res://Instances/Characters/HummingMan.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Instances/Props/DarknessOverlay.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/Cutscenes/CutsceneIntro.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Test3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Audio/Music/LevelTheme.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Instances/Cutscenes/CutsceneIntro.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Test3.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fade in"
@@ -40,6 +41,31 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Music Fadeout"
+tracks/0/type = "audio"
+tracks/0/path = NodePath("Background Music")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"clips": [  ],
+"times": PoolRealArray(  )
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Background Music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 2685.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -30.0 ]
 }
 
 [node name="Scene" type="Node2D"]
@@ -108,11 +134,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Background Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -30.0
+autoplay = true
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 "anims/Fade in" = SubResource( 1 )
 "anims/Fade out" = SubResource( 2 )
 
-[node name="CutsceneIntro" parent="." instance=ExtResource( 8 )]
+[node name="CutsceneIntro" parent="." instance=ExtResource( 9 )]
 dialogue_text = PoolStringArray( "Ah. Another newly-lost spirit.", "You are in the Underworld, my boy.", "...What\?", "You have left the world of the living.", "What\? No! I can\'t be dead! I need to get back!", "Don\'t we all.", "It won\'t happen, boy. Fools try to escape all the time.", "They\'re always stopped by the guards.", "One lucky idiot almost made it out, but even he didn\'t succeed.", "You certainly won\'t be any different." )
 dialogue_positions = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
 positions_to_use = PoolIntArray( 0, 0, 1, 0, 1, 0, 0, 0, 0, 0 )
@@ -121,11 +152,13 @@ dialogue_positions_2 = [ Vector2( 500, 200 ), Vector2( 300, 240 ) ]
 positions_to_use_2 = PoolIntArray( 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0 )
 dialogue_positions_3 = [ Vector2( 380, 240 ) ]
 anim_player = NodePath("../AnimationPlayer")
-target_scene = ExtResource( 9 )
+target_scene = ExtResource( 10 )
 
 [node name="TimerStartCutscene" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
 autostart = true
 
+[node name="AnimationPlayerMusic" type="AnimationPlayer" parent="."]
+"anims/Music Fadeout" = SubResource( 3 )
 [connection signal="timeout" from="TimerStartCutscene" to="CutsceneIntro" method="play_cutscene"]
