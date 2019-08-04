@@ -67,3 +67,8 @@ position = Vector2( 188, 192 )
 
 [node name="DarknessOverlay" parent="." instance=ExtResource( 7 )]
 
+[node name="Ambience" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Ambience"]
+volume_db = -20.194
+autoplay = true
