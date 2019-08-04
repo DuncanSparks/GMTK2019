@@ -52,7 +52,7 @@ texture = ExtResource( 3 )
 position = Vector2( 763.949, 432.969 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 103, 410 )
+position = Vector2( 100, 384.969 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )

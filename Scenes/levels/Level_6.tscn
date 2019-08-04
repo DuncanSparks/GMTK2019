@@ -55,7 +55,7 @@ offset = Vector2( -203.089, 5.69354 )
 position = Vector2( 847.912, 192.088 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 77.9006, 355.932 )
+position = Vector2( 77.9006, 337.626 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 tile_set = ExtResource( 5 )
