@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "ThrowableObject",
+"language": "GDScript",
+"path": "res://Scripts/ThrowableObject.gd"
 } ]
 _global_script_class_icons={
 "Dialogue": "",
-"Player": ""
+"Player": "",
+"ThrowableObject": ""
 }
 
 [application]

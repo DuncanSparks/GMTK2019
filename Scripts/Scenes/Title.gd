@@ -13,6 +13,7 @@ onready var anim_player := $AnimationPlayer2
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action_throw"):
 		if input:
+			Controller.play_sound_burst(click_sound)
 			input = false
 			match over:
 				0:
@@ -43,18 +44,21 @@ func exit_game() -> void:
 
 
 func _on_Area1_mouse_entered() -> void:
-	over = 0
-	Controller.play_sound_burst(hover_sound, 1, -20)
+	if input:
+		over = 0
+		Controller.play_sound_burst(hover_sound, 1, -20)
 
 
 func _on_Area2_mouse_entered() -> void:
-	over = 1
-	Controller.play_sound_burst(hover_sound, 1, -20)
+	if input:
+		over = 1
+		Controller.play_sound_burst(hover_sound, 1, -20)
 
 
 func _on_Area3_mouse_entered() -> void:
-	over = 2
-	Controller.play_sound_burst(hover_sound, 1, -20)
+	if input:
+		over = 2
+		Controller.play_sound_burst(hover_sound, 1, -20)
 
 
 func _on_Area1_mouse_exited() -> void:

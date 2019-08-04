@@ -4,6 +4,8 @@ class_name Dialogue
 
 signal dialogue_ended
 
+export(AudioStream) var text_sound
+
 const SPEED: float = 1.0
 
 var dialogue: PoolStringArray = []
@@ -12,6 +14,7 @@ var positions: Array = []
 var positions_to_use: PoolIntArray = []
 
 var disp: int = 0
+var page_length: int = 0
 var roll: bool = false
 var buffer: bool = false
 
@@ -39,6 +42,7 @@ func set_text_position(pos: Vector2) -> void:
 	$CanvasLayer.offset = pos
 
 func start() -> void:
+	page_length = len(dialogue[dialogue_page].replace(" ", ""))
 	roll = true
 	$TimerRollText.start()
 
@@ -47,6 +51,7 @@ func advance_page() -> void:
 	if dialogue_page < len(dialogue) - 1:
 		dialogue_page += 1
 		disp = 0
+		page_length = len(dialogue[dialogue_page].replace(" ", ""))
 		roll = true
 		$TimerRollText.start()
 		buffer = true
@@ -59,7 +64,10 @@ func advance_page() -> void:
 
 func _on_TimerRollText_timeout() -> void:
 	if roll and disp < len(dialogue[dialogue_page]):
+		if disp < page_length:
+			Controller.play_sound_burst(text_sound, rand_range(0.9, 1.1), -20)
 		disp += 1
+		
 	else:
 		$TimerRollText.stop()
 	

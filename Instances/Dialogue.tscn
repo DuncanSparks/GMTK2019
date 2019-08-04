@@ -1,17 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Dialogue.gd" type="Script" id=1]
-[ext_resource path="res://Fonts/FontStandard.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Audio/DialogueBlip.wav" type="AudioStream" id=2]
+[ext_resource path="res://Fonts/FontStandard.tres" type="DynamicFont" id=3]
 
 [node name="Dialogue" type="Node2D"]
 script = ExtResource( 1 )
+text_sound = ExtResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Text" type="Label" parent="CanvasLayer"]
 margin_right = 472.0
 margin_bottom = 132.0
-custom_fonts/font = ExtResource( 2 )
+custom_fonts/font = ExtResource( 3 )
 text = "Hello there"
 autowrap = true
 percent_visible = 0.0
