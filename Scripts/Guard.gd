@@ -27,3 +27,6 @@ func _physics_process(delta):
 			direction = (player.position - position).normalized() * STOP
 			
 	direction = move_and_slide(direction, player.position)
+
+func _on_KillArea_area_entered(area):
+	print()
