@@ -1,19 +1,19 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scripts/BasicEnemy.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeL.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters/Beez_ChargeR.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters/Beez_L.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters/Beez_R.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 9.43054, 23.3725 )
+extents = Vector2( 9.43054, 19.555 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 18.4416, 26.9238 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24.5227, 37.667 )
+extents = Vector2( 24.5227, 19.3802 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "ChargeLeft"
@@ -38,10 +38,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 2 ), ExtResource( 2 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -67,10 +67,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.9 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 3 ), ExtResource( 3 ) ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -95,10 +95,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 2 ) ]
+"values": [ ExtResource( 4 ), ExtResource( 4 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -123,10 +123,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 2.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 2.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ ExtResource( 5 ) ]
+"values": [ ExtResource( 5 ), ExtResource( 5 ) ]
 }
 
 [node name="Enemy" type="KinematicBody2D"]
@@ -137,17 +137,18 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2( -32.2359, 22.0278 )
+position = Vector2( 0, 19.5 )
 enabled = true
 cast_to = Vector2( 0, 20 )
 
 [node name="HitArea" type="Area2D" parent="."]
+collision_layer = 5
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
 shape = SubResource( 2 )
@@ -155,14 +156,14 @@ shape = SubResource( 2 )
 [node name="PlayerAreaVicinityFront" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaVicinityFront"]
-position = Vector2( 61.0137, -0.17482 )
+position = Vector2( 61.0137, -2.17482 )
 shape = SubResource( 3 )
 
 [node name="PlayerAreaVicinityBack" type="Area2D" parent="."]
 position = Vector2( 57.3423, 13.4615 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerAreaVicinityBack"]
-position = Vector2( -117.832, -13.9859 )
+position = Vector2( -117.832, -15.9859 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -172,8 +173,9 @@ anims/ChargeLeft = SubResource( 4 )
 anims/ChargeRight = SubResource( 5 )
 anims/WalkLeft = SubResource( 6 )
 anims/WalkRight = SubResource( 7 )
-[connection signal="area_entered" from="HitArea" to="." method="_on_HitArea_area_entered"]
-[connection signal="body_shape_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_shape_entered"]
-[connection signal="body_shape_exited" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_shape_exited"]
-[connection signal="body_shape_entered" from="PlayerAreaVicinityBack" to="." method="_on_PlayerAreaVicinityBack_body_shape_entered"]
-[connection signal="body_shape_exited" from="PlayerAreaVicinityBack" to="." method="_on_PlayerAreaVicinityBack_body_shape_exited"]
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_HitArea_body_entered"]
+[connection signal="body_entered" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_entered"]
+[connection signal="body_exited" from="PlayerAreaVicinityFront" to="." method="_on_PlayerAreaVicinityFront_body_exited"]
+[connection signal="body_entered" from="PlayerAreaVicinityBack" to="." method="_on_PlayerAreaVicinityBack_body_entered"]
+[connection signal="body_exited" from="PlayerAreaVicinityBack" to="." method="_on_PlayerAreaVicinityBack_body_exited"]
